@@ -1,6 +1,7 @@
 ﻿using Microsoft.Xna.Framework;
 using Microsoft.Xna.Framework.Graphics;
-using Microsoft.Xna.Framework.Input;
+using CrossPlatformDesktopProject.CommandController;
+using CrossPlatformDesktopProject.Sprites;
 
 namespace CrossPlatformDesktopProject
 {
@@ -9,9 +10,12 @@ namespace CrossPlatformDesktopProject
     /// </summary>
     public class Game1 : Game
     {
-        GraphicsDeviceManager graphics;
-        SpriteBatch spriteBatch;
-        
+        private GraphicsDeviceManager graphics;
+        private SpriteBatch spriteBatch;
+
+        private Matrix transformationMatrix;
+        private KeyboardController keyboard;
+
         public Game1()
         {
             graphics = new GraphicsDeviceManager(this);
@@ -26,7 +30,14 @@ namespace CrossPlatformDesktopProject
         /// </summary>
         protected override void Initialize()
         {
-            
+            int scale = 1;
+            graphics.PreferredBackBufferWidth = 320 * scale;
+            graphics.PreferredBackBufferHeight = 240 * scale;
+            graphics.ApplyChanges();
+            transformationMatrix = Matrix.CreateScale(scale, scale, 0);
+
+            keyboard = new KeyboardController(this);
+            IsMouseVisible = true;
 
             base.Initialize();
         }
@@ -39,8 +50,7 @@ namespace CrossPlatformDesktopProject
         {
             // Create a new SpriteBatch, which can be used to draw textures.
             spriteBatch = new SpriteBatch(GraphicsDevice);
-
-            // TODO: use this.Content to load your game content here
+            SpriteFactory.Instance.LoadTextures(Content, spriteBatch, GraphicsDevice);
         }
 
         /// <summary>
@@ -59,10 +69,7 @@ namespace CrossPlatformDesktopProject
         /// <param name="gameTime">Provides a snapshot of timing values.</param>
         protected override void Update(GameTime gameTime)
         {
-            if (GamePad.GetState(PlayerIndex.One).Buttons.Back == ButtonState.Pressed || Keyboard.GetState().IsKeyDown(Keys.Escape))
-                Exit();
-
-            // TODO: Add your update logic here
+            keyboard.Update();
 
             base.Update(gameTime);
         }
