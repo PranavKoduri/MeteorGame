@@ -20,6 +20,7 @@ namespace CrossPlatformDesktopProject.CommandController
             keyboardCommandMap = new Dictionary<Keys[], ICommand>()
             {
                 {new Keys[] {Keys.Q}, new QuitCommand(game)},
+                {new Keys[] {Keys.Left, Keys.Right, Keys.A, Keys.D}, new RoverMovementCommand(game)},
             };
         }
 

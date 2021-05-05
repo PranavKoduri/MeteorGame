@@ -3,6 +3,7 @@ using Microsoft.Xna.Framework.Graphics;
 using CrossPlatformDesktopProject.CommandController;
 using CrossPlatformDesktopProject.Sprites;
 using CrossPlatformDesktopProject.InGameInfo;
+using CrossPlatformDesktopProject.Entities;
 
 namespace CrossPlatformDesktopProject
 {
@@ -14,10 +15,13 @@ namespace CrossPlatformDesktopProject
         private GraphicsDeviceManager graphics;
         private SpriteBatch spriteBatch;
 
-        public readonly Vector2 dimensions = new Vector2(320, 240);
+        public readonly Vector2 Dimensions = new Vector2(320, 240);
 
         private Matrix transformationMatrix;
         private KeyboardController keyboard;
+
+        public Grass Grass;
+        public Rover Rover;
 
         public Game1()
         {
@@ -34,8 +38,8 @@ namespace CrossPlatformDesktopProject
         protected override void Initialize()
         {
             int scale = 3;
-            graphics.PreferredBackBufferWidth = (int)dimensions.X * scale;
-            graphics.PreferredBackBufferHeight = (int)dimensions.Y * scale;
+            graphics.PreferredBackBufferWidth = (int)Dimensions.X * scale;
+            graphics.PreferredBackBufferHeight = (int)Dimensions.Y * scale;
             graphics.ApplyChanges();
             transformationMatrix = Matrix.CreateScale(scale, scale, 0);
 
@@ -55,7 +59,10 @@ namespace CrossPlatformDesktopProject
             spriteBatch = new SpriteBatch(GraphicsDevice);
             SpriteFactory.Instance.LoadTextures(Content, spriteBatch, GraphicsDevice);
 
-            Ammo.Instance.Initialize(dimensions.X);
+            Ammo.Instance.Initialize(Dimensions.X);
+
+            Grass = new Grass(this);
+            Rover = new Rover(this);
         }
 
         /// <summary>
@@ -75,7 +82,7 @@ namespace CrossPlatformDesktopProject
         protected override void Update(GameTime gameTime)
         {
             keyboard.Update();
-
+            Rover.Update(gameTime);
             base.Update(gameTime);
         }
 
@@ -88,7 +95,8 @@ namespace CrossPlatformDesktopProject
             GraphicsDevice.Clear(Color.Black);
 
             spriteBatch.Begin(SpriteSortMode.BackToFront, BlendState.AlphaBlend, SamplerState.PointClamp, null, null, null, transformationMatrix);
-
+            Grass.Draw();
+            Rover.Draw();
             spriteBatch.End();
             
             base.Draw(gameTime);
