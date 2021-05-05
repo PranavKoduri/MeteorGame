@@ -13,7 +13,7 @@ namespace CrossPlatformDesktopProject.InGameInfo
         private const int scoreDigitPixelSpace = 3;
         private const int maxDigits = 5;
         private readonly Vector2 topLeft = new Vector2(10, 10);
-        private ISprite scoreBackground;
+        private readonly ISprite scoreBackground;
 
         private static Score scoreInstance = new Score();
         public static Score Instance
