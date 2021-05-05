@@ -1,0 +1,32 @@
+<?xml version="1.0" encoding="utf-8"?>
+<SourceFileCollection xmlns:xsd="http://www.w3.org/2001/XMLSchema" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance">
+  <Profile>Reach</Profile>
+  <Platform>DesktopGL</Platform>
+  <Config />
+  <SourceFiles>
+    <File>C:/GitHub/MeteorGame/CrossPlatformDesktopProject/CrossPlatformDesktopProject/Content/bullet.png</File>
+    <File>C:/GitHub/MeteorGame/CrossPlatformDesktopProject/CrossPlatformDesktopProject/Content/meteor10.png</File>
+    <File>C:/GitHub/MeteorGame/CrossPlatformDesktopProject/CrossPlatformDesktopProject/Content/meteor15.png</File>
+    <File>C:/GitHub/MeteorGame/CrossPlatformDesktopProject/CrossPlatformDesktopProject/Content/meteor20.png</File>
+    <File>C:/GitHub/MeteorGame/CrossPlatformDesktopProject/CrossPlatformDesktopProject/Content/meteor25.png</File>
+    <File>C:/GitHub/MeteorGame/CrossPlatformDesktopProject/CrossPlatformDesktopProject/Content/meteor30.png</File>
+    <File>C:/GitHub/MeteorGame/CrossPlatformDesktopProject/CrossPlatformDesktopProject/Content/meteor30a.png</File>
+    <File>C:/GitHub/MeteorGame/CrossPlatformDesktopProject/CrossPlatformDesktopProject/Content/meteor5.png</File>
+    <File>C:/GitHub/MeteorGame/CrossPlatformDesktopProject/CrossPlatformDesktopProject/Content/numbers.png</File>
+    <File>C:/GitHub/MeteorGame/CrossPlatformDesktopProject/CrossPlatformDesktopProject/Content/rovers.png</File>
+    <File>C:/GitHub/MeteorGame/CrossPlatformDesktopProject/CrossPlatformDesktopProject/Content/star.png</File>
+  </SourceFiles>
+  <DestFiles>
+    <File xsi:nil="true" />
+    <File xsi:nil="true" />
+    <File xsi:nil="true" />
+    <File xsi:nil="true" />
+    <File xsi:nil="true" />
+    <File xsi:nil="true" />
+    <File xsi:nil="true" />
+    <File xsi:nil="true" />
+    <File xsi:nil="true" />
+    <File xsi:nil="true" />
+    <File xsi:nil="true" />
+  </DestFiles>
+</SourceFileCollection>

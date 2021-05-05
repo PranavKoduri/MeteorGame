@@ -30,7 +30,7 @@ namespace CrossPlatformDesktopProject
         /// </summary>
         protected override void Initialize()
         {
-            int scale = 1;
+            int scale = 3;
             graphics.PreferredBackBufferWidth = 320 * scale;
             graphics.PreferredBackBufferHeight = 240 * scale;
             graphics.ApplyChanges();

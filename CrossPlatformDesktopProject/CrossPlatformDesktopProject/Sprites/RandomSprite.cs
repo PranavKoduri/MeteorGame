@@ -16,7 +16,7 @@ namespace CrossPlatformDesktopProject.Sprites
 
         private ISprite.FrameChange frameChange;
         private float frameTimer;
-        private const float frameDelay = 1f;
+        private const float frameDelay = 0.5f;
         private List<double> frameCumulativeProbabilities;
 
         private Rectangle position;
@@ -44,7 +44,7 @@ namespace CrossPlatformDesktopProject.Sprites
         }
         private void LoadFrames(int rows, int columns, Vector2 subTopleft, Vector2 subDim)
         {
-            Point rectangleDim = (subDim / new Vector2(rows, columns)).ToPoint();
+            Point rectangleDim = (subDim / new Vector2(columns, rows)).ToPoint();
             frames = new List<Rectangle>();
             for (int i = 0; i < rows; i++)
             {
@@ -76,6 +76,7 @@ namespace CrossPlatformDesktopProject.Sprites
         }
         public void Draw()
         {
+            int c = currentFrame;
             spriteBatch.Draw(texture, position, frames[currentFrame], Color.White, 0, new Vector2(), SpriteEffects.None, layer);
         }
 
