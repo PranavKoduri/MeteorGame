@@ -24,7 +24,7 @@ namespace CrossPlatformDesktopProject.InGameInfo
         {
             score = 0;
             scoreTimer = 0;
-            scoreBackground = SpriteFactory.Instance.BlackScoreBackgroundSprite(topLeft, scoreDigitPixelSpace, maxDigits);
+            scoreBackground = SpriteFactory.Instance.BlackScoreBackgroundSprite(topLeft, new Vector2((maxDigits + 1) * scoreDigitPixelSpace + maxDigits * 10, 15 + 2 * scoreDigitPixelSpace));
         }
 
         public void StageComplete(int stageCompleted)
