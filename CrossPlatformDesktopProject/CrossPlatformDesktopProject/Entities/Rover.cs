@@ -32,7 +32,7 @@ namespace CrossPlatformDesktopProject.Entities
 
 
             dimensions = new Vector2(30, 20);
-            topLeft = game.Grass.TopLeft - new Vector2(0, dimensions.Y);
+            topLeft = game.Grass.TopLeft + new Vector2((game.Dimensions.X - dimensions.X) / 2, -dimensions.Y);
             maxRight = new Vector2(game.Dimensions.X - dimensions.X, topLeft.Y);
 
             roverSprite = SpriteFactory.Instance.RoverSprite(topLeft);
@@ -54,6 +54,19 @@ namespace CrossPlatformDesktopProject.Entities
         public void Draw()
         {
             roverSprite.Draw();
+        }
+
+        public void Reset()
+        {
+            maxHealth = 1;
+            health = maxHealth;
+
+            MaxAmmo = 10;
+            CurrentAmmo = maxAmmo;
+
+            Position = game.Grass.TopLeft + new Vector2((game.Dimensions.X - dimensions.X) / 2, -dimensions.Y);
+            roverSprite = SpriteFactory.Instance.RoverSprite(topLeft);
+            roverSprite.FrameDirection = ISprite.FrameChange.Still;
         }
 
         public int Health

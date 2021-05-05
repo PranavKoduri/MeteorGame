@@ -4,6 +4,7 @@ using CrossPlatformDesktopProject.CommandController;
 using CrossPlatformDesktopProject.Sprites;
 using CrossPlatformDesktopProject.InGameInfo;
 using CrossPlatformDesktopProject.Entities;
+using CrossPlatformDesktopProject.GameState;
 
 namespace CrossPlatformDesktopProject
 {
@@ -45,6 +46,7 @@ namespace CrossPlatformDesktopProject
 
             keyboard = new KeyboardController(this);
             IsMouseVisible = true;
+            GameStateManager.Instance.Game = this;
 
             base.Initialize();
         }
@@ -63,6 +65,8 @@ namespace CrossPlatformDesktopProject
 
             Grass = new Grass(this);
             Rover = new Rover(this);
+
+            Stars.Instance.Game = this;
         }
 
         /// <summary>
@@ -82,7 +86,7 @@ namespace CrossPlatformDesktopProject
         protected override void Update(GameTime gameTime)
         {
             keyboard.Update();
-            Rover.Update(gameTime);
+            GameStateManager.Instance.Update(gameTime);
             base.Update(gameTime);
         }
 
@@ -95,10 +99,9 @@ namespace CrossPlatformDesktopProject
             GraphicsDevice.Clear(Color.Black);
 
             spriteBatch.Begin(SpriteSortMode.BackToFront, BlendState.AlphaBlend, SamplerState.PointClamp, null, null, null, transformationMatrix);
-            Grass.Draw();
-            Rover.Draw();
+            GameStateManager.Instance.Draw();
             spriteBatch.End();
-            
+
             base.Draw(gameTime);
         }
     }

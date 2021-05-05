@@ -55,7 +55,14 @@ namespace CrossPlatformDesktopProject.InGameInfo
                 int digit = tempScore % 10;
                 tempScore /= 10;
                 SpriteFactory.Instance.NumberSprite(offset + new Vector2((10 + scoreDigitPixelSpace) * i, 0), digit).Draw();
+                if (tempScore == 0) break;
             }
+        }
+
+        public void Reset()
+        {
+            score = 0;
+            scoreTimer = 0;
         }
     }
 }

@@ -26,8 +26,6 @@ namespace CrossPlatformDesktopProject.InGameInfo
         }
         private Ammo()
         {
-            maxAmmo = 0;
-            currentAmmo = maxAmmo;
         }
         public void Initialize(float windowWidth)
         {
@@ -45,6 +43,7 @@ namespace CrossPlatformDesktopProject.InGameInfo
             set
             {
                 if (value == maxAmmo) return;
+                maxAmmo = value;
                 Vector2 topLeft = new Vector2(windowWidth - (maxAmmo + 3) * ammoSpacing - maxAmmo * 4, 0) + topRightOffset;
                 blueBorder = SpriteFactory.Instance.BlueAmmoBorderSprite(topLeft, new Vector2((maxAmmo + 3) * ammoSpacing + maxAmmo * 4, verticalAmmoSpacing * 2 + 11 + ammoSpacing * 2));
                 whiteBackground = SpriteFactory.Instance.WhiteAmmoBackgroundSprite(topLeft + new Vector2(ammoSpacing, ammoSpacing), new Vector2((maxAmmo + 1) * ammoSpacing + maxAmmo * 4, verticalAmmoSpacing * 2 + 11));

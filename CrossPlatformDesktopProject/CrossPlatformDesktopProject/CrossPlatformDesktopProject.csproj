@@ -7,7 +7,7 @@
     <ProductVersion>8.0.30703</ProductVersion>
     <SchemaVersion>2.0</SchemaVersion>
     <ProjectGuid>{3363B47E-7523-41E5-B4C3-51E4A16DF98D}</ProjectGuid>
-    <OutputType>WinExe</OutputType>
+    <OutputType>Exe</OutputType>
     <AppDesignerFolder>Properties</AppDesignerFolder>
     <RootNamespace>CrossPlatformDesktopProject</RootNamespace>
     <AssemblyName>CrossPlatformDesktopProject</AssemblyName>
@@ -44,15 +44,27 @@
   <PropertyGroup>
     <ApplicationManifest>app.manifest</ApplicationManifest>
   </PropertyGroup>
+  <PropertyGroup>
+    <StartupObject />
+  </PropertyGroup>
   <ItemGroup>
     <Compile Include="CommandController\CommandList.cs" />
     <Compile Include="CommandController\ICommand.cs" />
     <Compile Include="CommandController\KeyboardController.cs" />
+    <Compile Include="CommandController\PauseCommand.cs" />
     <Compile Include="CommandController\QuitCommand.cs" />
+    <Compile Include="CommandController\ResetCommand.cs" />
     <Compile Include="CommandController\RoverMovementCommand.cs" />
+    <Compile Include="CommandController\RoverShootCommand.cs" />
     <Compile Include="Entities\Grass.cs" />
     <Compile Include="Entities\Rover.cs" />
     <Compile Include="Game1.cs" />
+    <Compile Include="Gameplay\Stars.cs" />
+    <Compile Include="GameState\FinishedState.cs" />
+    <Compile Include="GameState\GameplayState.cs" />
+    <Compile Include="GameState\GameStateManager.cs" />
+    <Compile Include="GameState\IGameState.cs" />
+    <Compile Include="GameState\PausedState.cs" />
     <Compile Include="InGameInfo\Ammo.cs" />
     <Compile Include="InGameInfo\Score.cs" />
     <Compile Include="Program.cs" />
