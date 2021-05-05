@@ -22,7 +22,6 @@ namespace CrossPlatformDesktopProject.Sprites
 
         private Rectangle position;
 
-        // |frameProbabilities| = numFrames
         // sum(i:[0,|frameProbabilities|),frameProbabilities[i]) = 1
         public RandomSprite(Vector2 pos, Vector2 dim, SpriteBatch sprite, Texture2D txt, Vector2 subTopleft, Vector2 subDim, int rows, int columns, float spriteLayer, List<double> frameProbabilities, int seed)
         {
