@@ -9,7 +9,6 @@ namespace CrossPlatformDesktopProject.Sprites
     {
         private Texture2D texture;
         private SpriteBatch spriteBatch;
-        private int numFrames;
         private float layer;
 
         private int currentFrame;
@@ -23,7 +22,7 @@ namespace CrossPlatformDesktopProject.Sprites
         private Rectangle position;
 
         // |frameProbabilities| = numFrames
-        // sum(i:[0,frameProbabilities),frameProbabilities[i]) = 1
+        // sum(i:[0,|frameProbabilities|),frameProbabilities[i]) = 1
         public RandomSprite(Vector2 pos, Vector2 dim, SpriteBatch sprite, Texture2D txt, Vector2 subTopleft, Vector2 subDim, int rows, int columns, float spriteLayer, List<double> frameProbabilities)
         {
             position = new Rectangle(pos.ToPoint(), dim.ToPoint());
@@ -31,7 +30,6 @@ namespace CrossPlatformDesktopProject.Sprites
             spriteBatch = sprite;
             texture = txt;
             layer = spriteLayer;
-            numFrames = rows * columns;
 
             frameChange = ISprite.FrameChange.Changing;
             frameTimer = 0;
