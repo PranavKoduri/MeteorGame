@@ -86,9 +86,9 @@ namespace CrossPlatformDesktopProject.Sprites
         {
             return new RandomSprite(pos, new Vector2(3, 3), spriteBatch, star, new Vector2(), new Vector2(6, 3), 1, 2, SpriteLayers.StarLayer, frameProbabilities);
         }
-        public ISprite BlackScoreBackgroundSprite(Vector2 pos, Vector2 dim)
+        public ISprite BlackScoreBackgroundSprite(Vector2 pos, int pixelSpace, int numDigits)
         {
-            return new Sprite(pos, dim, spriteBatch, blackScoreBackgroundSprite, new Vector2(), new Vector2(1, 1), 1, 1, SpriteLayers.BlackScoreBackgroundLayer);
+            return new Sprite(pos, new Vector2((numDigits+1)*pixelSpace+numDigits*10,15+2*pixelSpace), spriteBatch, blackScoreBackgroundSprite, new Vector2(), new Vector2(1, 1), 1, 1, SpriteLayers.BlackScoreBackgroundLayer);
         }
         public ISprite WhiteAmmoBackgroundSprite(Vector2 pos, Vector2 dim)
         {

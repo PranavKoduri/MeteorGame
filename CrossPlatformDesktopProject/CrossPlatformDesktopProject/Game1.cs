@@ -2,6 +2,7 @@
 using Microsoft.Xna.Framework.Graphics;
 using CrossPlatformDesktopProject.CommandController;
 using CrossPlatformDesktopProject.Sprites;
+using CrossPlatformDesktopProject.InGameInfo;
 
 namespace CrossPlatformDesktopProject
 {
@@ -12,6 +13,8 @@ namespace CrossPlatformDesktopProject
     {
         private GraphicsDeviceManager graphics;
         private SpriteBatch spriteBatch;
+
+        public readonly Vector2 dimensions = new Vector2(320, 240);
 
         private Matrix transformationMatrix;
         private KeyboardController keyboard;
@@ -31,8 +34,8 @@ namespace CrossPlatformDesktopProject
         protected override void Initialize()
         {
             int scale = 3;
-            graphics.PreferredBackBufferWidth = 320 * scale;
-            graphics.PreferredBackBufferHeight = 240 * scale;
+            graphics.PreferredBackBufferWidth = (int)dimensions.X * scale;
+            graphics.PreferredBackBufferHeight = (int)dimensions.Y * scale;
             graphics.ApplyChanges();
             transformationMatrix = Matrix.CreateScale(scale, scale, 0);
 
@@ -85,7 +88,7 @@ namespace CrossPlatformDesktopProject
             spriteBatch.Begin(SpriteSortMode.BackToFront, BlendState.AlphaBlend, SamplerState.PointClamp, null, null, null, transformationMatrix);
 
             spriteBatch.End();
-
+            
             base.Draw(gameTime);
         }
     }
