@@ -31,9 +31,9 @@ namespace CrossPlatformDesktopProject.InGameInfo
         {
             score += 1000 * stageCompleted;
         }
-        public void MeteorDestroyed(int meteorRadius)
+        public void MeteorDestroyed(int meteorHealth)
         {
-            score += 20 * meteorRadius;
+            score += 20 * meteorHealth;
         }
 
         public void Update(GameTime gameTime)

@@ -56,9 +56,13 @@
     <Compile Include="CommandController\ResetCommand.cs" />
     <Compile Include="CommandController\RoverMovementCommand.cs" />
     <Compile Include="CommandController\RoverShootCommand.cs" />
+    <Compile Include="Entities\Bullet.cs" />
     <Compile Include="Entities\Grass.cs" />
+    <Compile Include="Entities\Meteor.cs" />
     <Compile Include="Entities\Rover.cs" />
     <Compile Include="Game1.cs" />
+    <Compile Include="Gameplay\GameplayManager.cs" />
+    <Compile Include="Gameplay\IStage.cs" />
     <Compile Include="Gameplay\Stars.cs" />
     <Compile Include="GameState\FinishedState.cs" />
     <Compile Include="GameState\GameplayState.cs" />

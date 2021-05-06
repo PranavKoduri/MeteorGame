@@ -11,10 +11,10 @@
         public const float BlueAmmoBorderLayer = 0.32f;
 
         /* main game */
-        public const float BulletLayer = 0.5f;
-        public const float MeteorLayer = 0.6f;
-        public const float RoverLayer = 0.7f;
-        public const float GrassLayer = 0.75f;
+        public const float MeteorLayer = 0.5f;
+        public const float RoverLayer = 0.6f;
+        public const float BulletLayer = 0.65f;
+        public const float GrassLayer = 0.7f;
         public const float StarLayer = 0.8f;
     }
 }

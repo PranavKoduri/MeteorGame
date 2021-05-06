@@ -5,6 +5,7 @@ using CrossPlatformDesktopProject.Sprites;
 using CrossPlatformDesktopProject.InGameInfo;
 using CrossPlatformDesktopProject.Entities;
 using CrossPlatformDesktopProject.GameState;
+using CrossPlatformDesktopProject.Gameplay;
 
 namespace CrossPlatformDesktopProject
 {
@@ -47,6 +48,7 @@ namespace CrossPlatformDesktopProject
             keyboard = new KeyboardController(this);
             IsMouseVisible = true;
             GameStateManager.Instance.Game = this;
+            GameplayManager.Instance.Game = this;
 
             base.Initialize();
         }

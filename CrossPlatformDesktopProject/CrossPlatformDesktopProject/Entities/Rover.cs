@@ -1,6 +1,8 @@
 ﻿using CrossPlatformDesktopProject.Sprites;
 using Microsoft.Xna.Framework;
 using CrossPlatformDesktopProject.InGameInfo;
+using CrossPlatformDesktopProject.GameState;
+using CrossPlatformDesktopProject.Gameplay;
 
 namespace CrossPlatformDesktopProject.Entities
 {
@@ -19,6 +21,9 @@ namespace CrossPlatformDesktopProject.Entities
 
         private int currentAmmo;
         private int maxAmmo;
+        private const int initialMaxAmmo = 5;
+        private float reloadSpeed;
+        private float reloadTime;
 
         public Rover(Game1 game)
         {
@@ -27,9 +32,10 @@ namespace CrossPlatformDesktopProject.Entities
             maxHealth = 1;
             health = maxHealth;
 
-            MaxAmmo = 10;
+            MaxAmmo = initialMaxAmmo;
             CurrentAmmo = maxAmmo;
-
+            reloadSpeed = 1.5f;
+            reloadTime = 0;
 
             dimensions = new Vector2(30, 20);
             topLeft = game.Grass.TopLeft + new Vector2((game.Dimensions.X - dimensions.X) / 2, -dimensions.Y);
@@ -50,19 +56,41 @@ namespace CrossPlatformDesktopProject.Entities
         public void Update(GameTime gameTime)
         {
             roverSprite.Update(gameTime);
+            if (CurrentAmmo != MaxAmmo)
+            {
+                reloadTime += (float)gameTime.ElapsedGameTime.TotalSeconds;
+                if (reloadTime > reloadSpeed)
+                {
+                    reloadTime = 0;
+                    CurrentAmmo++;
+                }
+            }
         }
         public void Draw()
         {
             roverSprite.Draw();
         }
 
+        public void Die()
+        {
+            GameStateManager.Instance.EndGame();
+        }
+        public void Shoot()
+        {
+            if (CurrentAmmo > 0)
+            {
+                CurrentAmmo--;
+                GameplayManager.Instance.AddBullet(topLeft + new Vector2((dimensions.X - 4) / 2, 0));
+            }
+        }
         public void Reset()
         {
             maxHealth = 1;
             health = maxHealth;
 
-            MaxAmmo = 10;
+            MaxAmmo = initialMaxAmmo;
             CurrentAmmo = maxAmmo;
+            reloadTime = 0;
 
             Position = game.Grass.TopLeft + new Vector2((game.Dimensions.X - dimensions.X) / 2, -dimensions.Y);
             roverSprite = SpriteFactory.Instance.RoverSprite(topLeft);
@@ -72,12 +100,25 @@ namespace CrossPlatformDesktopProject.Entities
         public int Health
         {
             get => health;
-            set => health = value;
+            set
+            {
+                if (value <= 0)
+                {
+                    value = 0;
+                    Die();
+                }
+                else if (value > maxHealth) value = maxHealth;
+                health = value;
+            }
         }
         public int MaxHealth
         {
             get => maxHealth;
-            set => maxHealth = value;
+            set
+            {
+                if (value < 0) value = 0;
+                maxHealth = value;
+            }
         }
         public int MaxAmmo
         {
