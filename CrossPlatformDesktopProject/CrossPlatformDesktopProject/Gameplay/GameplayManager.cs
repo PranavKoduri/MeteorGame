@@ -67,6 +67,10 @@ namespace CrossPlatformDesktopProject.Gameplay
         {
             meteors.Remove(meteor);
         }
+        public bool MeteorsPresent()
+        {
+            return meteors.Count > 0;
+        }
 
         public Game1 Game
         {

@@ -7,6 +7,7 @@ namespace CrossPlatformDesktopProject.Gameplay
     public class Stage1 : IStage
     {
         private const int stage = 1;
+
         public Stage1()
         {
 
