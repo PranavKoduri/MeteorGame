@@ -1,6 +1,7 @@
 ﻿using System.Collections.Generic;
 using Microsoft.Xna.Framework;
 using CrossPlatformDesktopProject.Entities;
+using CrossPlatformDesktopProject.GameState;
 
 namespace CrossPlatformDesktopProject.Gameplay
 {
@@ -9,6 +10,8 @@ namespace CrossPlatformDesktopProject.Gameplay
         private Game1 game;
 
         private Dictionary<int, IStage> stages;
+        private int stage;
+        private const int numStages = 6;
         private List<Bullet> bullets;
         private List<Meteor> meteors;
 
@@ -19,6 +22,7 @@ namespace CrossPlatformDesktopProject.Gameplay
         }
         private GameplayManager()
         {
+            stage = 1;
             bullets = new List<Bullet>();
             meteors = new List<Meteor>();
         }
@@ -49,6 +53,10 @@ namespace CrossPlatformDesktopProject.Gameplay
         {
             bullets = new List<Bullet>();
             meteors = new List<Meteor>();
+            foreach (int i in stages.Keys)
+            {
+                stages[i].Reset();
+            }
         }
 
         public void AddBullet(Vector2 position)
@@ -70,6 +78,11 @@ namespace CrossPlatformDesktopProject.Gameplay
         public bool MeteorsPresent()
         {
             return meteors.Count > 0;
+        }
+        public void StageCompleted()
+        {
+            stage++;
+            if (stage > numStages) GameStateManager.Instance.EndGame();
         }
 
         public Game1 Game
