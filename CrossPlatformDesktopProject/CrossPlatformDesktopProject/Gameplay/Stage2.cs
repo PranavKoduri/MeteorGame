@@ -10,16 +10,18 @@ namespace CrossPlatformDesktopProject.Gameplay
 
         private const int stage = 2;
 
-        private const float spawnDuration = 5f;
-        private const float spawnDelay = 3f;
+        private const float spawnDuration = 30f;
+        private const float spawnDelay = 1.95f;
         private float durationTimer;
         private float delayTimer;
+        Random rd;
 
         public Stage2(Game1 game)
         {
             durationTimer = 0;
             delayTimer = 0;
             this.game = game;
+            rd = new Random();
         }
 
         public void Update(GameTime gameTime)
@@ -34,7 +36,6 @@ namespace CrossPlatformDesktopProject.Gameplay
             else if (delayTimer > spawnDelay)
             {
                 delayTimer = 0;
-                Random rd = new Random();
                 int rad = 35 - 5 * stage;
                 int xPos;
                 do
@@ -52,6 +53,7 @@ namespace CrossPlatformDesktopProject.Gameplay
         {
             Score.Instance.StageComplete(stage);
             GameplayManager.Instance.StageCompleted();
+            game.Rover.MaxAmmo += 2;
         }
         public void Reset()
         {

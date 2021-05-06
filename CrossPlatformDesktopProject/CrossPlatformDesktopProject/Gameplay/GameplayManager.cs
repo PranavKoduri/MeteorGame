@@ -84,7 +84,7 @@ namespace CrossPlatformDesktopProject.Gameplay
         {
             stage++;
             if (stage > stages.Count) GameStateManager.Instance.EndGame();
-            else game.Rover.MaxAmmo++;
+            else game.Rover.CurrentAmmo = game.Rover.MaxAmmo;
         }
 
         public Game1 Game

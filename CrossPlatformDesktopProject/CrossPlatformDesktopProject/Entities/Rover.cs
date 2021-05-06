@@ -21,7 +21,8 @@ namespace CrossPlatformDesktopProject.Entities
 
         private int currentAmmo;
         private int maxAmmo;
-        private const int initialMaxAmmo = 5;
+        private const int initialMaxAmmo = 3;
+        private const float initialReloadSpeed = 1.75f;
         private float reloadSpeed;
         private float reloadTime;
 
@@ -34,7 +35,7 @@ namespace CrossPlatformDesktopProject.Entities
 
             MaxAmmo = initialMaxAmmo;
             CurrentAmmo = maxAmmo;
-            reloadSpeed = 1.75f;
+            reloadSpeed = initialReloadSpeed;
             reloadTime = 0;
 
             dimensions = new Vector2(30, 20);
@@ -91,6 +92,7 @@ namespace CrossPlatformDesktopProject.Entities
             MaxAmmo = initialMaxAmmo;
             CurrentAmmo = maxAmmo;
             reloadTime = 0;
+            reloadSpeed = initialReloadSpeed;
 
             Position = game.Grass.TopLeft + new Vector2((game.Dimensions.X - dimensions.X) / 2, -dimensions.Y);
             roverSprite = SpriteFactory.Instance.RoverSprite(topLeft);
@@ -151,6 +153,11 @@ namespace CrossPlatformDesktopProject.Entities
                 roverSprite.Center = value;
             }
             get => topLeft;
+        }
+        public float ReloadSpeed
+        {
+            get => reloadSpeed;
+            set => reloadSpeed = value;
         }
     }
 }
