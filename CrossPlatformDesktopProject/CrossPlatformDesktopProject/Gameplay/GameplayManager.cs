@@ -11,7 +11,6 @@ namespace CrossPlatformDesktopProject.Gameplay
 
         private Dictionary<int, IStage> stages;
         private int stage;
-        private const int numStages = 6;
         private List<Bullet> bullets;
         private List<Meteor> meteors;
 
@@ -37,6 +36,7 @@ namespace CrossPlatformDesktopProject.Gameplay
             {
                 meteor.Update(gameTime);
             }
+            stages[stage].Update(gameTime);
         }
         public void Draw()
         {
@@ -51,6 +51,7 @@ namespace CrossPlatformDesktopProject.Gameplay
         }
         public void Reset()
         {
+            stage = 1;
             bullets = new List<Bullet>();
             meteors = new List<Meteor>();
             foreach (int i in stages.Keys)
@@ -82,7 +83,8 @@ namespace CrossPlatformDesktopProject.Gameplay
         public void StageCompleted()
         {
             stage++;
-            if (stage > numStages) GameStateManager.Instance.EndGame();
+            if (stage > stages.Count) GameStateManager.Instance.EndGame();
+            else game.Rover.MaxAmmo++;
         }
 
         public Game1 Game
@@ -90,6 +92,15 @@ namespace CrossPlatformDesktopProject.Gameplay
             set
             {
                 game = value;
+                stages = new Dictionary<int, IStage>()
+                {
+                    {1, new Stage1(game)},
+                    {2, new Stage2(game)},
+                    {3, new Stage3(game)},
+                    {4, new Stage4(game)},
+                    {5, new Stage5(game)},
+                    {6, new Stage6(game)},
+                };
             }
         }
     }

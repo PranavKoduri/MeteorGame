@@ -63,6 +63,12 @@
     <Compile Include="Game1.cs" />
     <Compile Include="Gameplay\GameplayManager.cs" />
     <Compile Include="Gameplay\IStage.cs" />
+    <Compile Include="Gameplay\Stage1.cs" />
+    <Compile Include="Gameplay\Stage2.cs" />
+    <Compile Include="Gameplay\Stage3.cs" />
+    <Compile Include="Gameplay\Stage4.cs" />
+    <Compile Include="Gameplay\Stage5.cs" />
+    <Compile Include="Gameplay\Stage6.cs" />
     <Compile Include="Gameplay\Stars.cs" />
     <Compile Include="GameState\FinishedState.cs" />
     <Compile Include="GameState\GameplayState.cs" />

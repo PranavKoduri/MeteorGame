@@ -34,7 +34,7 @@ namespace CrossPlatformDesktopProject.Entities
 
             MaxAmmo = initialMaxAmmo;
             CurrentAmmo = maxAmmo;
-            reloadSpeed = 1.5f;
+            reloadSpeed = 1.75f;
             reloadTime = 0;
 
             dimensions = new Vector2(30, 20);
