@@ -57,7 +57,7 @@ namespace CrossPlatformDesktopProject.Sprites
             rules = content.Load<Texture2D>("thegamerules");
             gamecontrols = content.Load<Texture2D>("gamecontrols");
             clearconfirm = content.Load<Texture2D>("clearhighscoreconfirm");
-        meteors = new Dictionary<int, Texture2D>()
+            meteors = new Dictionary<int, Texture2D>()
             {
                 { 5, content.Load<Texture2D>("meteor5") },
                 { 10, content.Load<Texture2D>("meteor10") },
@@ -139,35 +139,35 @@ namespace CrossPlatformDesktopProject.Sprites
         }
         public ISprite PausedSprite(Vector2 pos)
         {
-            return new Sprite(pos, new Vector2(4, 11), spriteBatch, paused, new Vector2(), new Vector2(4, 11), 1, 1, SpriteLayers.PopUpLayer);
+            return new Sprite(pos, new Vector2(50, 20), spriteBatch, paused, new Vector2(), new Vector2(50, 20), 1, 1, SpriteLayers.PopUpLayer);
         }
         public ISprite TitleSprite(Vector2 pos)
         {
-            return new Sprite(pos, new Vector2(4, 11), spriteBatch, title, new Vector2(), new Vector2(4, 11), 1, 1, SpriteLayers.MenuLayer);
+            return new Sprite(pos, new Vector2(320, 240), spriteBatch, title, new Vector2(), new Vector2(320, 240), 1, 1, SpriteLayers.MenuLayer);
         }
         public ISprite HighScreenSprite(Vector2 pos)
         {
-            return new Sprite(pos, new Vector2(4, 11), spriteBatch, highscreen, new Vector2(), new Vector2(4, 11), 1, 1, SpriteLayers.MenuLayer);
+            return new Sprite(pos, new Vector2(320, 240), spriteBatch, highscreen, new Vector2(), new Vector2(320, 240), 1, 1, SpriteLayers.MenuLayer);
         }
         public ISprite HighScoresSprite(Vector2 pos)
         {
-            return new Sprite(pos, new Vector2(4, 11), spriteBatch, high, new Vector2(), new Vector2(4, 11), 1, 1, SpriteLayers.MenuLabelLayer);
+            return new Sprite(pos, new Vector2(68, 9), spriteBatch, high, new Vector2(), new Vector2(68, 9), 1, 1, SpriteLayers.MenuLabelLayer);
         }
         public ISprite Top3Sprite(Vector2 pos)
         {
-            return new Sprite(pos, new Vector2(4, 11), spriteBatch, top3, new Vector2(), new Vector2(4, 11), 1, 1, SpriteLayers.GoldSilverBronzeLayer);
+            return new Sprite(pos, new Vector2(320, 240), spriteBatch, top3, new Vector2(), new Vector2(320, 240), 1, 1, SpriteLayers.GoldSilverBronzeLayer);
         }
         public ISprite MenuControlsSprite(Vector2 pos)
         {
-            return new Sprite(pos, new Vector2(4, 11), spriteBatch, menucontrols, new Vector2(), new Vector2(4, 11), 1, 1, SpriteLayers.MenuLayer);
+            return new Sprite(pos, new Vector2(320, 240), spriteBatch, menucontrols, new Vector2(), new Vector2(320, 240), 1, 1, SpriteLayers.MenuLayer);
         }
         public ISprite GameControlsSprite(Vector2 pos)
         {
-            return new Sprite(pos, new Vector2(4, 11), spriteBatch, gamecontrols, new Vector2(), new Vector2(4, 11), 1, 1, SpriteLayers.MenuLayer);
+            return new Sprite(pos, new Vector2(320, 240), spriteBatch, gamecontrols, new Vector2(), new Vector2(320, 240), 1, 1, SpriteLayers.MenuLayer);
         }
         public ISprite GameRulesSprite(Vector2 pos)
         {
-            return new Sprite(pos, new Vector2(4, 11), spriteBatch, rules, new Vector2(), new Vector2(4, 11), 1, 1, SpriteLayers.MenuLayer);
+            return new Sprite(pos, new Vector2(320, 240), spriteBatch, rules, new Vector2(), new Vector2(320, 240), 1, 1, SpriteLayers.MenuLayer);
         }
         public ISprite NumberTransparentSprite(Vector2 pos, int i) // i = number from 0-9
         {
