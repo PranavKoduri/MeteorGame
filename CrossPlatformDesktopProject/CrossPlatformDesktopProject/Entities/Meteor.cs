@@ -41,9 +41,9 @@ namespace CrossPlatformDesktopProject.Entities
             meteorSprite.Draw();
         }
 
-        public void Destroy()
+        public void Destroy(bool roverShot)
         {
-            Score.Instance.MeteorDestroyed(maxHealth);
+            if (roverShot) Score.Instance.MeteorDestroyed(maxHealth);
         }
         public bool Destroyed()
         {
@@ -55,11 +55,7 @@ namespace CrossPlatformDesktopProject.Entities
             get => health;
             set
             {
-                if (value <= 0)
-                {
-                    value = 0;
-                    Destroy();
-                }
+                if (value <= 0) value = 0;
                 else if (value > maxHealth) value = maxHealth;
                 health = value;
             }

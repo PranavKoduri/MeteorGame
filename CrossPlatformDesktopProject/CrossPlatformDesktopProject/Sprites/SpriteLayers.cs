@@ -3,6 +3,13 @@
     /* LOWER NUMBER MEANS FURTHER ON TOP */
     public class SpriteLayers
     {
+        /* menu player */
+        public const float PopUpLayer = 0.02f;
+        public const float PageIndicatorLayer = 0.05f;
+        public const float MenuLabelLayer = 0.09f;
+        public const float MenuLayer = 0.095f;
+        public const float GoldSilverBronzeLayer = 0.1f;
+
         /* info */
         public const float ScoreLayer = 0.2f;
         public const float BlackScoreBackgroundLayer = 0.21f;

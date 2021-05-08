@@ -58,6 +58,16 @@ namespace CrossPlatformDesktopProject.InGameInfo
                 if (tempScore == 0) break;
             }
         }
+        public void DrawHighScore(int score, Vector2 position)
+        {
+            for (int i = maxDigits - 1; i >= 0; i--)
+            {
+                int digit = score % 10;
+                score /= 10;
+                SpriteFactory.Instance.NumberSprite(position + new Vector2((10 + scoreDigitPixelSpace) * i, 0), digit).Draw();
+                if (score == 0) break;
+            }
+        }
 
         public void Reset()
         {

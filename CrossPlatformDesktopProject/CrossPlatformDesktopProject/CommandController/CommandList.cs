@@ -21,9 +21,9 @@ namespace CrossPlatformDesktopProject.CommandController
             {
                 {new Keys[] {Keys.Q}, new QuitCommand(game)},
                 {new Keys[] {Keys.Left, Keys.Right, Keys.A, Keys.D}, new RoverMovementCommand(game)},
-                {new Keys[] {Keys.P}, new PauseCommand(game)},
+                {new Keys[] {Keys.P, Keys.Space}, new PauseCommand(game)},
                 {new Keys[] {Keys.R}, new ResetCommand(game)},
-                {new Keys[] {Keys.W, Keys.S, Keys.Up, Keys.Down, Keys.Space}, new RoverShootCommand(game)},
+                {new Keys[] {Keys.W, Keys.S, Keys.Up, Keys.Down}, new RoverShootCommand(game)},
             };
         }
 
