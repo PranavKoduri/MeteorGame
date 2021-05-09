@@ -24,6 +24,10 @@ namespace CrossPlatformDesktopProject.CommandController
                 {new Keys[] {Keys.P, Keys.Space}, new PauseCommand(game)},
                 {new Keys[] {Keys.R}, new ResetCommand(game)},
                 {new Keys[] {Keys.W, Keys.S, Keys.Up, Keys.Down}, new RoverShootCommand(game)},
+                {new Keys[] {Keys.C}, new PopUpCommand(game)},
+                {new Keys[] {Keys.B}, new GoBackCommand(game)},
+                {new Keys[] {Keys.H}, new RulesCommand(game)},
+                {new Keys[] {Keys.S}, new HighScoresCommand(game)},
             };
         }
 

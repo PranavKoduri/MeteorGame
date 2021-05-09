@@ -51,7 +51,7 @@ namespace CrossPlatformDesktopProject.Sprites
             paused = content.Load<Texture2D>("paused");
             numberstransparent = content.Load<Texture2D>("numberstransparent");
             title = content.Load<Texture2D>("meteorrushtitle");
-            highscreen = content.Load<Texture2D>("highscoresscreen");
+            highscreen = content.Load<Texture2D>("newhighscoresscreen");
             high = content.Load<Texture2D>("highscores");
             top3 = content.Load<Texture2D>("goldsilverbronze");
             page = content.Load<Texture2D>("pageindicators");
@@ -105,9 +105,9 @@ namespace CrossPlatformDesktopProject.Sprites
             int dim = 2 * i + 1;
             return new Sprite(pos, new Vector2(dim, dim), spriteBatch, meteors[i], new Vector2(), new Vector2(dim, dim), 1, 1, SpriteLayers.MeteorLayer);
         }
-        public ISprite NumberSprite(Vector2 pos, int i) // i = number from 0-9
+        public ISprite NumberSprite(Vector2 pos, int i, bool inMenu = false) // i = number from 0-9
         {
-            return new Sprite(pos, new Vector2(10, 15), spriteBatch, numbers, new Vector2(10 * i, 0), new Vector2(10, 15), 1, 1, SpriteLayers.ScoreLayer);
+            return new Sprite(pos, new Vector2(10, 15), spriteBatch, numbers, new Vector2(10 * i, 0), new Vector2(10, 15), 1, 1, inMenu ? SpriteLayers.MenuLabelLayer : SpriteLayers.ScoreLayer);
         }
         public ISprite StarSprite(Vector2 pos, List<double> frameProbabilities, int seed)
         {

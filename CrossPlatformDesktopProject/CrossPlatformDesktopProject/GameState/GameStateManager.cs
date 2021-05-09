@@ -1,5 +1,7 @@
 ﻿using System.Collections.Generic;
 using Microsoft.Xna.Framework;
+using CrossPlatformDesktopProject.Menu;
+using CrossPlatformDesktopProject.InGameInfo;
 
 namespace CrossPlatformDesktopProject.GameState
 {
@@ -8,9 +10,11 @@ namespace CrossPlatformDesktopProject.GameState
         private Game1 game;
         private GameState gameState;
         private Dictionary<GameState, IGameState> gameStates;
+        private bool winner;
 
         private enum GameState
         {
+            Menu,
             Playing,
             Paused,
             Finished
@@ -23,12 +27,20 @@ namespace CrossPlatformDesktopProject.GameState
         }
         private GameStateManager()
         {
-            gameState = GameState.Playing;
+            gameState = GameState.Menu;
         }
 
         public bool IsPlaying()
         {
             return gameState == GameState.Playing;
+        }
+        public bool InMenu()
+        {
+            return gameState == GameState.Menu;
+        }
+        public bool IsPaused()
+        {
+            return gameState == GameState.Paused;
         }
 
         public void TogglePause()
@@ -36,16 +48,22 @@ namespace CrossPlatformDesktopProject.GameState
             switch (gameState)
             {
                 case GameState.Playing:
-                    gameState = GameState.Paused;
+                    NewGameState = GameState.Paused;
                     break;
                 case GameState.Paused:
-                    gameState = GameState.Playing;
+                    NewGameState = GameState.Playing;
                     break;
             }
         }
-        public void EndGame()
+        public void StartGame()
         {
-            gameState = GameState.Finished;
+            NewGameState = GameState.Playing;
+        }
+        public void EndGame(bool win)
+        {
+            winner = win;
+            NewGameState = GameState.Finished;
+            HighScores.Instance.AddScore(Score.Instance.GetScore);
         }
 
         public void Update(GameTime gameTime)
@@ -59,7 +77,7 @@ namespace CrossPlatformDesktopProject.GameState
 
         public void Reset()
         {
-            gameState = GameState.Playing;
+            NewGameState = GameState.Menu;
         }
 
         public Game1 Game
@@ -72,7 +90,20 @@ namespace CrossPlatformDesktopProject.GameState
                     {GameState.Playing, new GameplayState(game) },
                     {GameState.Paused, new PausedState(game) },
                     {GameState.Finished, new FinishedState(game) },
+                    {GameState.Menu, new MenuState(game) },
                 };
+            }
+        }
+        public bool Win
+        {
+            get => winner;
+        }
+        private GameState NewGameState
+        {
+            set
+            {
+                gameState = value;
+                gameStates[value].NewState();
             }
         }
     }

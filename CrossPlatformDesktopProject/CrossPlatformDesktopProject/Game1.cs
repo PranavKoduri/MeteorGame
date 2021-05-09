@@ -6,6 +6,7 @@ using CrossPlatformDesktopProject.InGameInfo;
 using CrossPlatformDesktopProject.Entities;
 using CrossPlatformDesktopProject.GameState;
 using CrossPlatformDesktopProject.Gameplay;
+using CrossPlatformDesktopProject.Menu;
 
 namespace CrossPlatformDesktopProject
 {
@@ -47,8 +48,8 @@ namespace CrossPlatformDesktopProject
 
             keyboard = new KeyboardController(this);
             IsMouseVisible = true;
-            GameStateManager.Instance.Game = this;
             GameplayManager.Instance.Game = this;
+            HighScores.Instance.Game = this;
 
             base.Initialize();
         }
@@ -62,6 +63,8 @@ namespace CrossPlatformDesktopProject
             // Create a new SpriteBatch, which can be used to draw textures.
             spriteBatch = new SpriteBatch(GraphicsDevice);
             SpriteFactory.Instance.LoadTextures(Content, spriteBatch, GraphicsDevice);
+            GameStateManager.Instance.Game = this;
+            MenuManager.Instance.Game = this;
 
             Ammo.Instance.Initialize(Dimensions.X);
 

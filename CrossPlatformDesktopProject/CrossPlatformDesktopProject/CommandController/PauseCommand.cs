@@ -1,4 +1,5 @@
 ﻿using CrossPlatformDesktopProject.GameState;
+using CrossPlatformDesktopProject.Menu;
 
 namespace CrossPlatformDesktopProject.CommandController
 {
@@ -17,7 +18,8 @@ namespace CrossPlatformDesktopProject.CommandController
         {
             if (pressed) return;
             pressed = true;
-            GameStateManager.Instance.TogglePause();
+            if (GameStateManager.Instance.IsPaused() || GameStateManager.Instance.IsPlaying()) GameStateManager.Instance.TogglePause();
+            else if (GameStateManager.Instance.InMenu()) MenuManager.Instance.StartGame();
         }
         public void Unexecute()
         {

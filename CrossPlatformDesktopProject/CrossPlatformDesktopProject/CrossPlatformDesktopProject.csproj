@@ -49,13 +49,17 @@
   </PropertyGroup>
   <ItemGroup>
     <Compile Include="CommandController\CommandList.cs" />
+    <Compile Include="CommandController\GoBackCommand.cs" />
+    <Compile Include="CommandController\HighScoresCommand.cs" />
     <Compile Include="CommandController\ICommand.cs" />
     <Compile Include="CommandController\KeyboardController.cs" />
     <Compile Include="CommandController\PauseCommand.cs" />
+    <Compile Include="CommandController\PopUpCommand.cs" />
     <Compile Include="CommandController\QuitCommand.cs" />
     <Compile Include="CommandController\ResetCommand.cs" />
     <Compile Include="CommandController\RoverMovementCommand.cs" />
     <Compile Include="CommandController\RoverShootCommand.cs" />
+    <Compile Include="CommandController\RulesCommand.cs" />
     <Compile Include="Entities\Bullet.cs" />
     <Compile Include="Entities\Grass.cs" />
     <Compile Include="Entities\Meteor.cs" />
@@ -74,9 +78,22 @@
     <Compile Include="GameState\GameplayState.cs" />
     <Compile Include="GameState\GameStateManager.cs" />
     <Compile Include="GameState\IGameState.cs" />
+    <Compile Include="GameState\MenuState.cs" />
     <Compile Include="GameState\PausedState.cs" />
     <Compile Include="InGameInfo\Ammo.cs" />
     <Compile Include="InGameInfo\Score.cs" />
+    <Compile Include="Menu\HighScores.cs" />
+    <Compile Include="Menu\MenuManager.cs" />
+    <Compile Include="Menu\PageSets\HelpPageSet.cs" />
+    <Compile Include="Menu\PageSets\HighScorePageSet.cs" />
+    <Compile Include="Menu\PageSets\IPageSet.cs" />
+    <Compile Include="Menu\Pages\GameControlsPage.cs" />
+    <Compile Include="Menu\Pages\GameRulesPage.cs" />
+    <Compile Include="Menu\Pages\HighScoresPage.cs" />
+    <Compile Include="Menu\Pages\IPage.cs" />
+    <Compile Include="Menu\Pages\MenuControlsPage.cs" />
+    <Compile Include="Menu\PopUps\ClearConfirmPopUp.cs" />
+    <Compile Include="Menu\PopUps\IPopUp.cs" />
     <Compile Include="Program.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
     <Compile Include="Sprites\ISprite.cs" />
@@ -143,6 +160,9 @@
       <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
     </None>
     <None Include="app.manifest" />
+  </ItemGroup>
+  <ItemGroup>
+    <Content Include="Menu\scores.txt" />
   </ItemGroup>
   <ItemGroup />
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />

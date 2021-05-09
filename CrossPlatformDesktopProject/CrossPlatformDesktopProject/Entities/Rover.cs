@@ -74,7 +74,7 @@ namespace CrossPlatformDesktopProject.Entities
 
         public void Die()
         {
-            GameStateManager.Instance.EndGame();
+            GameStateManager.Instance.EndGame(false);
         }
         public void Shoot()
         {

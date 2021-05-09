@@ -83,7 +83,7 @@ namespace CrossPlatformDesktopProject.Gameplay
         public void StageCompleted()
         {
             stage++;
-            if (stage > stages.Count) GameStateManager.Instance.EndGame();
+            if (stage > stages.Count) GameStateManager.Instance.EndGame(true);
             else game.Rover.CurrentAmmo = game.Rover.MaxAmmo;
         }
 
@@ -94,12 +94,12 @@ namespace CrossPlatformDesktopProject.Gameplay
                 game = value;
                 stages = new Dictionary<int, IStage>()
                 {
-                    {1, new Stage1(game)},
+                    {1, new Stage1(game)},/*
                     {2, new Stage2(game)},
                     {3, new Stage3(game)},
                     {4, new Stage4(game)},
                     {5, new Stage5(game)},
-                    {6, new Stage6(game)},
+                    {6, new Stage6(game)},*/
                 };
             }
         }

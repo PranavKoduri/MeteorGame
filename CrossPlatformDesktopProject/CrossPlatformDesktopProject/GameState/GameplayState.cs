@@ -27,5 +27,9 @@ namespace CrossPlatformDesktopProject.GameState
             game.Rover.Draw();
             game.Grass.Draw();
         }
+        public void NewState()
+        {
+
+        }
     }
 }

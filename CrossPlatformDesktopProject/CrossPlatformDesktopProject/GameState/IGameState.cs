@@ -6,5 +6,6 @@ namespace CrossPlatformDesktopProject.GameState
     {
         public void Update(GameTime gameTime);
         public void Draw();
+        public void NewState();
     }
 }

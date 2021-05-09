@@ -10,8 +10,8 @@ namespace CrossPlatformDesktopProject.InGameInfo
         private float scoreTimer;
         private const float scoreDelay = 0.1f;
 
-        private const int scoreDigitPixelSpace = 3;
-        private const int maxDigits = 5;
+        public const int ScoreDigitPixelSpace = 3;
+        public const int MaxDigits = 5;
         private readonly Vector2 topLeft = new Vector2(10, 10);
         private readonly ISprite scoreBackground;
 
@@ -24,7 +24,7 @@ namespace CrossPlatformDesktopProject.InGameInfo
         {
             score = 0;
             scoreTimer = 0;
-            scoreBackground = SpriteFactory.Instance.BlackScoreBackgroundSprite(topLeft, new Vector2((maxDigits + 1) * scoreDigitPixelSpace + maxDigits * 10, 15 + 2 * scoreDigitPixelSpace));
+            scoreBackground = SpriteFactory.Instance.BlackScoreBackgroundSprite(topLeft, new Vector2((MaxDigits + 1) * ScoreDigitPixelSpace + MaxDigits * 10, 15 + 2 * ScoreDigitPixelSpace));
         }
 
         public void StageComplete(int stageCompleted)
@@ -49,22 +49,22 @@ namespace CrossPlatformDesktopProject.InGameInfo
         {
             int tempScore = score;
             scoreBackground.Draw();
-            Vector2 offset = topLeft + new Vector2(scoreDigitPixelSpace, scoreDigitPixelSpace);
-            for (int i = maxDigits - 1; i >= 0; i--)
+            Vector2 offset = topLeft + new Vector2(ScoreDigitPixelSpace, ScoreDigitPixelSpace);
+            for (int i = MaxDigits - 1; i >= 0; i--)
             {
                 int digit = tempScore % 10;
                 tempScore /= 10;
-                SpriteFactory.Instance.NumberSprite(offset + new Vector2((10 + scoreDigitPixelSpace) * i, 0), digit).Draw();
+                SpriteFactory.Instance.NumberSprite(offset + new Vector2((10 + ScoreDigitPixelSpace) * i, 0), digit).Draw();
                 if (tempScore == 0) break;
             }
         }
         public void DrawHighScore(int score, Vector2 position)
         {
-            for (int i = maxDigits - 1; i >= 0; i--)
+            for (int i = MaxDigits - 1; i >= 0; i--)
             {
                 int digit = score % 10;
                 score /= 10;
-                SpriteFactory.Instance.NumberSprite(position + new Vector2((10 + scoreDigitPixelSpace) * i, 0), digit).Draw();
+                SpriteFactory.Instance.NumberSprite(position + new Vector2((10 + ScoreDigitPixelSpace) * i, 0), digit).Draw();
                 if (score == 0) break;
             }
         }
@@ -73,6 +73,11 @@ namespace CrossPlatformDesktopProject.InGameInfo
         {
             score = 0;
             scoreTimer = 0;
+        }
+
+        public int GetScore
+        {
+            get => score;
         }
     }
 }

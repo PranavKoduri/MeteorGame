@@ -1,6 +1,7 @@
 ﻿using CrossPlatformDesktopProject.GameState;
 using CrossPlatformDesktopProject.InGameInfo;
 using CrossPlatformDesktopProject.Gameplay;
+using CrossPlatformDesktopProject.Menu;
 
 namespace CrossPlatformDesktopProject.CommandController
 {
@@ -24,6 +25,7 @@ namespace CrossPlatformDesktopProject.CommandController
             Stars.Instance.Reset();
             GameplayManager.Instance.Reset();
             game.Rover.Reset();
+            MenuManager.Instance.Reset();
         }
         public void Unexecute()
         {
