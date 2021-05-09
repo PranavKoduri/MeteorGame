@@ -29,6 +29,8 @@ namespace CrossPlatformDesktopProject.Sprites
         private Texture2D rules;
         private Texture2D gamecontrols;
         private Texture2D clearconfirm;
+        private Texture2D gameover;
+        private Texture2D youwinlose;
 
         private static SpriteFactory spriteFactoryInstance = new SpriteFactory();
         public static SpriteFactory Instance
@@ -57,6 +59,8 @@ namespace CrossPlatformDesktopProject.Sprites
             rules = content.Load<Texture2D>("thegamerules");
             gamecontrols = content.Load<Texture2D>("gamecontrols");
             clearconfirm = content.Load<Texture2D>("clearhighscoreconfirm");
+            gameover = content.Load<Texture2D>("gameover");
+            youwinlose = content.Load<Texture2D>("youwinlose");
             meteors = new Dictionary<int, Texture2D>()
             {
                 { 5, content.Load<Texture2D>("meteor5") },
@@ -135,7 +139,7 @@ namespace CrossPlatformDesktopProject.Sprites
         }
         public ISprite ClearConfirmSprite(Vector2 pos)
         {
-            return new Sprite(pos, new Vector2(100, 40), spriteBatch, clearconfirm, new Vector2(), new Vector2(100, 80), 2, 1, SpriteLayers.PopUpLayer);
+            return new Sprite(pos, new Vector2(100, 40), spriteBatch, clearconfirm, new Vector2(), new Vector2(100, 80), 2, 1, SpriteLayers.PopUpLayer, 0.8f);
         }
         public ISprite PausedSprite(Vector2 pos)
         {
@@ -172,6 +176,15 @@ namespace CrossPlatformDesktopProject.Sprites
         public ISprite NumberTransparentSprite(Vector2 pos, int i) // i = number from 0-9
         {
             return new Sprite(pos, new Vector2(10, 15), spriteBatch, numberstransparent, new Vector2(10 * i, 0), new Vector2(10, 15), 1, 1, SpriteLayers.MenuLabelLayer);
+        }
+        public ISprite GameOverSprite(Vector2 pos)
+        {
+            return new Sprite(pos, new Vector2(100, 40), spriteBatch, gameover, new Vector2(), new Vector2(100, 40), 1, 1, SpriteLayers.PopUpLayer);
+        }
+        public ISprite YouWinLoseSprite(Vector2 pos, bool win)
+        {
+            int winner = win ? 1 : 0;
+            return new Sprite(pos, new Vector2(160, 50), spriteBatch, youwinlose, new Vector2(0, 50 * winner), new Vector2(320, 50), 1, 2, SpriteLayers.PopUpLayer, 0.4f);
         }
     }
 }
