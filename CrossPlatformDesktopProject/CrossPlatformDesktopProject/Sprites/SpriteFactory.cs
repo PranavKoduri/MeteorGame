@@ -31,6 +31,7 @@ namespace CrossPlatformDesktopProject.Sprites
         private Texture2D clearconfirm;
         private Texture2D gameover;
         private Texture2D youwinlose;
+        private Texture2D moreinfo;
 
         private static SpriteFactory spriteFactoryInstance = new SpriteFactory();
         public static SpriteFactory Instance
@@ -50,7 +51,7 @@ namespace CrossPlatformDesktopProject.Sprites
             star = content.Load<Texture2D>("star");
             paused = content.Load<Texture2D>("paused");
             numberstransparent = content.Load<Texture2D>("numberstransparent");
-            title = content.Load<Texture2D>("meteorrushtitle");
+            title = content.Load<Texture2D>("newmeteorrushtitle");
             highscreen = content.Load<Texture2D>("newhighscoresscreen");
             high = content.Load<Texture2D>("highscores");
             top3 = content.Load<Texture2D>("goldsilverbronze");
@@ -61,6 +62,7 @@ namespace CrossPlatformDesktopProject.Sprites
             clearconfirm = content.Load<Texture2D>("clearhighscoreconfirm");
             gameover = content.Load<Texture2D>("gameover");
             youwinlose = content.Load<Texture2D>("youwinlose");
+            moreinfo = content.Load<Texture2D>("moreinfo");
             meteors = new Dictionary<int, Texture2D>()
             {
                 { 5, content.Load<Texture2D>("meteor5") },
@@ -172,6 +174,10 @@ namespace CrossPlatformDesktopProject.Sprites
         public ISprite GameRulesSprite(Vector2 pos)
         {
             return new Sprite(pos, new Vector2(320, 240), spriteBatch, rules, new Vector2(), new Vector2(320, 240), 1, 1, SpriteLayers.MenuLayer);
+        }
+        public ISprite MoreInfoSprite(Vector2 pos)
+        {
+            return new Sprite(pos, new Vector2(320, 240), spriteBatch, moreinfo, new Vector2(), new Vector2(320, 240), 1, 1, SpriteLayers.MenuLayer);
         }
         public ISprite NumberTransparentSprite(Vector2 pos, int i) // i = number from 0-9
         {

@@ -92,6 +92,7 @@
     <Compile Include="Menu\Pages\HighScoresPage.cs" />
     <Compile Include="Menu\Pages\IPage.cs" />
     <Compile Include="Menu\Pages\MenuControlsPage.cs" />
+    <Compile Include="Menu\Pages\MoreInfoPage.cs" />
     <Compile Include="Menu\PopUps\ClearConfirmPopUp.cs" />
     <Compile Include="Menu\PopUps\IPopUp.cs" />
     <Compile Include="Program.cs" />

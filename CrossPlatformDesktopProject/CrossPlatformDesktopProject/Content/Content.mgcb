@@ -205,7 +205,7 @@
 /processorParam:TextureFormat=Color
 /build:meteor5.png
 
-#begin meteorrushtitle.png
+#begin moreinfo.png
 /importer:TextureImporter
 /processor:TextureProcessor
 /processorParam:ColorKeyColor=255,0,255,255
@@ -215,7 +215,7 @@
 /processorParam:ResizeToPowerOfTwo=False
 /processorParam:MakeSquare=False
 /processorParam:TextureFormat=Color
-/build:meteorrushtitle.png
+/build:moreinfo.png
 
 #begin newhighscoresscreen.png
 /importer:TextureImporter
@@ -228,6 +228,18 @@
 /processorParam:MakeSquare=False
 /processorParam:TextureFormat=Color
 /build:newhighscoresscreen.png
+
+#begin newmeteorrushtitle.png
+/importer:TextureImporter
+/processor:TextureProcessor
+/processorParam:ColorKeyColor=255,0,255,255
+/processorParam:ColorKeyEnabled=True
+/processorParam:GenerateMipmaps=False
+/processorParam:PremultiplyAlpha=True
+/processorParam:ResizeToPowerOfTwo=False
+/processorParam:MakeSquare=False
+/processorParam:TextureFormat=Color
+/build:newmeteorrushtitle.png
 
 #begin numbers.png
 /importer:TextureImporter

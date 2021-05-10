@@ -36,10 +36,11 @@ C:\GitHub\MeteorGame\CrossPlatformDesktopProject\CrossPlatformDesktopProject\bin
 C:\GitHub\MeteorGame\CrossPlatformDesktopProject\CrossPlatformDesktopProject\bin\DesktopGL\AnyCPU\Debug\Content\goldsilverbronze.xnb
 C:\GitHub\MeteorGame\CrossPlatformDesktopProject\CrossPlatformDesktopProject\bin\DesktopGL\AnyCPU\Debug\Content\highscores.xnb
 C:\GitHub\MeteorGame\CrossPlatformDesktopProject\CrossPlatformDesktopProject\bin\DesktopGL\AnyCPU\Debug\Content\menucontrols.xnb
-C:\GitHub\MeteorGame\CrossPlatformDesktopProject\CrossPlatformDesktopProject\bin\DesktopGL\AnyCPU\Debug\Content\meteorrushtitle.xnb
 C:\GitHub\MeteorGame\CrossPlatformDesktopProject\CrossPlatformDesktopProject\bin\DesktopGL\AnyCPU\Debug\Content\numberstransparent.xnb
 C:\GitHub\MeteorGame\CrossPlatformDesktopProject\CrossPlatformDesktopProject\bin\DesktopGL\AnyCPU\Debug\Content\pageindicators.xnb
 C:\GitHub\MeteorGame\CrossPlatformDesktopProject\CrossPlatformDesktopProject\bin\DesktopGL\AnyCPU\Debug\Content\paused.xnb
 C:\GitHub\MeteorGame\CrossPlatformDesktopProject\CrossPlatformDesktopProject\bin\DesktopGL\AnyCPU\Debug\Content\thegamerules.xnb
 C:\GitHub\MeteorGame\CrossPlatformDesktopProject\CrossPlatformDesktopProject\bin\DesktopGL\AnyCPU\Debug\Content\youwinlose.xnb
 C:\GitHub\MeteorGame\CrossPlatformDesktopProject\CrossPlatformDesktopProject\bin\DesktopGL\AnyCPU\Debug\Content\newhighscoresscreen.xnb
+C:\GitHub\MeteorGame\CrossPlatformDesktopProject\CrossPlatformDesktopProject\bin\DesktopGL\AnyCPU\Debug\Content\moreinfo.xnb
+C:\GitHub\MeteorGame\CrossPlatformDesktopProject\CrossPlatformDesktopProject\bin\DesktopGL\AnyCPU\Debug\Content\newmeteorrushtitle.xnb

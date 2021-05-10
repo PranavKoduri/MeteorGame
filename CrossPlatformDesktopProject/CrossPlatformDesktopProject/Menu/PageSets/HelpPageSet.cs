@@ -27,6 +27,7 @@ namespace CrossPlatformDesktopProject.Menu.PageSets
                 { new MenuControlsPage(game) },
                 { new GameRulesPage(game) },
                 { new GameControlsPage(game) },
+                { new MoreInfoPage(game) },
             };
             left = new Vector2(offset, game.Dimensions.Y - offset - 9);
             right = new Vector2(game.Dimensions.X - offset - 9, game.Dimensions.Y - offset - 9);

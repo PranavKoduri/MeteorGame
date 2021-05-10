@@ -20,8 +20,9 @@
     <File>C:/GitHub/MeteorGame/CrossPlatformDesktopProject/CrossPlatformDesktopProject/Content/meteor30.png</File>
     <File>C:/GitHub/MeteorGame/CrossPlatformDesktopProject/CrossPlatformDesktopProject/Content/meteor30a.png</File>
     <File>C:/GitHub/MeteorGame/CrossPlatformDesktopProject/CrossPlatformDesktopProject/Content/meteor5.png</File>
-    <File>C:/GitHub/MeteorGame/CrossPlatformDesktopProject/CrossPlatformDesktopProject/Content/meteorrushtitle.png</File>
+    <File>C:/GitHub/MeteorGame/CrossPlatformDesktopProject/CrossPlatformDesktopProject/Content/moreinfo.png</File>
     <File>C:/GitHub/MeteorGame/CrossPlatformDesktopProject/CrossPlatformDesktopProject/Content/newhighscoresscreen.png</File>
+    <File>C:/GitHub/MeteorGame/CrossPlatformDesktopProject/CrossPlatformDesktopProject/Content/newmeteorrushtitle.png</File>
     <File>C:/GitHub/MeteorGame/CrossPlatformDesktopProject/CrossPlatformDesktopProject/Content/numbers.png</File>
     <File>C:/GitHub/MeteorGame/CrossPlatformDesktopProject/CrossPlatformDesktopProject/Content/numberstransparent.png</File>
     <File>C:/GitHub/MeteorGame/CrossPlatformDesktopProject/CrossPlatformDesktopProject/Content/pageindicators.png</File>
@@ -32,6 +33,7 @@
     <File>C:/GitHub/MeteorGame/CrossPlatformDesktopProject/CrossPlatformDesktopProject/Content/youwinlose.png</File>
   </SourceFiles>
   <DestFiles>
+    <File xsi:nil="true" />
     <File xsi:nil="true" />
     <File xsi:nil="true" />
     <File xsi:nil="true" />
