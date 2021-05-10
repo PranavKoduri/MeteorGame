@@ -3,12 +3,15 @@ using System.Collections.Generic;
 using CrossPlatformDesktopProject.InGameInfo;
 using CrossPlatformDesktopProject.Sprites;
 using Microsoft.Xna.Framework;
+using System;
 
 namespace CrossPlatformDesktopProject.Menu
 {
     public class HighScores
     {
         private Game1 game;
+
+        private const int charOffset = 48;
 
         private const int numScores = 10;
 
@@ -18,7 +21,8 @@ namespace CrossPlatformDesktopProject.Menu
         private const int scoresTopPixel = 29;
         private const int verticalScoreDistance = 4;
 
-        private const string fileName = "scores.txt";
+        private const string relativeFileName = "scores.txt";
+        private readonly string fileName;
 
         private static HighScores highScoresInstance = new HighScores();
         public static HighScores Instance
@@ -27,6 +31,8 @@ namespace CrossPlatformDesktopProject.Menu
         }
         private HighScores()
         {
+            string workingDirectory = Directory.GetParent(Environment.CurrentDirectory).Parent.Parent.FullName;
+            fileName = workingDirectory + "/" + relativeFileName;
             LoadScores();
         }
 
@@ -37,11 +43,13 @@ namespace CrossPlatformDesktopProject.Menu
             for (int i = 0; i < numScores; i++)
             {
                 int score = 0;
+                int b;
                 for (int j = 0; j < Score.MaxDigits; j++)
                 {
-                    score = score * 10 + file.ReadByte();
+                    b = file.ReadByte();
+                    score = score * 10 + (b - charOffset);
                 }
-                file.ReadByte();
+                b = file.ReadByte();
                 scores.Add(score);
             }
             file.Close();
@@ -50,11 +58,10 @@ namespace CrossPlatformDesktopProject.Menu
 
         public void AddScore(int score)
         {
-            int pos;
             bool high = false;
-            for (pos = numScores - 1; pos >= 0; pos--)
+            for (int i = numScores - 1; i >= 0; i--)
             {
-                if (scores[pos] < score)
+                if (scores[i] < score)
                 {
                     high = true;
                     break;
@@ -62,12 +69,12 @@ namespace CrossPlatformDesktopProject.Menu
             }
             if (high)
             {
-                scores[pos] = score;
+                scores[0] = score;
+                scores.Sort();
                 file = new FileStream(fileName, FileMode.Truncate, FileAccess.Write);
-                scores = new List<int>();
-                List<int> digits = new List<int>();
                 for (int i = 0; i < numScores; i++)
                 {
+                    List<int> digits = new List<int>();
                     score = scores[i];
                     for (int j = 0; j < Score.MaxDigits; j++)
                     {
@@ -77,7 +84,7 @@ namespace CrossPlatformDesktopProject.Menu
                     }
                     for (int j = Score.MaxDigits - 1; j >= 0; j--)
                     {
-                        file.WriteByte((byte)digits[j]);
+                        file.WriteByte((byte)(digits[j] + charOffset));
                     }
                     file.WriteByte((byte)'\n');
                 }
@@ -93,7 +100,7 @@ namespace CrossPlatformDesktopProject.Menu
             {
                 for (int j = 0; j < Score.MaxDigits; j++)
                 {
-                    file.WriteByte(0);
+                    file.WriteByte(charOffset);
                 }
                 file.WriteByte((byte)'\n');
                 scores.Add(0);
