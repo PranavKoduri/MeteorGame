@@ -21,7 +21,6 @@ namespace CrossPlatformDesktopProject.Menu.PageSets
         public HelpPageSet(Game1 game)
         {
             this.game = game;
-            currentPage = 0;
             pages = new List<IPage>()
             {
                 { new MenuControlsPage(game) },
@@ -31,27 +30,26 @@ namespace CrossPlatformDesktopProject.Menu.PageSets
             };
             left = new Vector2(offset, game.Dimensions.Y - offset - 9);
             right = new Vector2(game.Dimensions.X - offset - 9, game.Dimensions.Y - offset - 9);
-            UpdatePageIndicators();
+            CurrentPage = 0;
         }
 
         public void PageChange(bool changeLeft)
         {
-            if (pages[currentPage].PopUpDisplayed) return;
-            if (changeLeft && currentPage > 0) currentPage--;
-            else if (!changeLeft && currentPage < pages.Count - 1) currentPage++;
-            UpdatePageIndicators();
+            if (pages[CurrentPage].PopUpDisplayed) return;
+            if (changeLeft && CurrentPage > 0) CurrentPage--;
+            else if (!changeLeft && CurrentPage < pages.Count - 1) CurrentPage++;
         }
         public void PopUp()
         {
-            pages[currentPage].PopUp();
+            pages[CurrentPage].PopUp();
         }
         public void Update(GameTime gameTime)
         {
-            pages[currentPage].Update(gameTime);
+            pages[CurrentPage].Update(gameTime);
         }
         public void Draw()
         {
-            pages[currentPage].Draw();
+            pages[CurrentPage].Draw();
             leftPage.Draw();
             rightPage.Draw();
         }
@@ -62,13 +60,18 @@ namespace CrossPlatformDesktopProject.Menu.PageSets
             {
                 page.Reset();
             }
-            currentPage = 0;
+            CurrentPage = 0;
         }
 
-        private void UpdatePageIndicators()
+        private int CurrentPage
         {
-            leftPage = SpriteFactory.Instance.PageSprite(left, true, currentPage > 0);
-            rightPage = SpriteFactory.Instance.PageSprite(right, false, currentPage < pages.Count - 1);
+            set
+            {
+                currentPage = value;
+                leftPage = SpriteFactory.Instance.PageSprite(left, true, currentPage > 0);
+                rightPage = SpriteFactory.Instance.PageSprite(right, false, currentPage < pages.Count - 1);
+            }
+            get => currentPage;
         }
     }
 }

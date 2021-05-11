@@ -1,9 +1,9 @@
 <?xml version="1.0" encoding="utf-8"?>
 <PipelineBuildEvent xmlns:xsd="http://www.w3.org/2001/XMLSchema" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance">
   <SourceFile>C:/GitHub/MeteorGame/CrossPlatformDesktopProject/CrossPlatformDesktopProject/Content/newmeteorrushtitle.png</SourceFile>
-  <SourceTime>2021-05-10T18:15:16.213087-04:00</SourceTime>
+  <SourceTime>2021-05-11T04:01:20.4085566-04:00</SourceTime>
   <DestFile>C:/GitHub/MeteorGame/CrossPlatformDesktopProject/CrossPlatformDesktopProject/Content/bin/DesktopGL/Content/newmeteorrushtitle.xnb</DestFile>
-  <DestTime>2021-05-10T18:24:40.6697865-04:00</DestTime>
+  <DestTime>2021-05-11T04:03:32.6717377-04:00</DestTime>
   <Importer>TextureImporter</Importer>
   <ImporterTime>2018-12-08T11:35:54-05:00</ImporterTime>
   <Processor>TextureProcessor</Processor>
