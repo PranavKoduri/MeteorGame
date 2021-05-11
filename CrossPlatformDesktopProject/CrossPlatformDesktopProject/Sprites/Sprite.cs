@@ -16,11 +16,11 @@ namespace CrossPlatformDesktopProject.Sprites
 
         private ISprite.FrameChange frameChange;
         private float frameTimer;
-        private const float frameDelay = 0.1f;
+        private readonly float frameDelay;
 
         private Rectangle position;
 
-        public Sprite(Vector2 pos, Vector2 dim, SpriteBatch sprite, Texture2D txt, Vector2 subTopleft, Vector2 subDim, int rows, int columns, float spriteLayer)
+        public Sprite(Vector2 pos, Vector2 dim, SpriteBatch sprite, Texture2D txt, Vector2 subTopleft, Vector2 subDim, int rows, int columns, float spriteLayer, float delay = 0.1f)
         {
             position = new Rectangle(pos.ToPoint(), dim.ToPoint());
 
@@ -34,6 +34,8 @@ namespace CrossPlatformDesktopProject.Sprites
 
             currentFrame = 0;
             LoadFrames(rows, columns, subTopleft, subDim);
+
+            frameDelay = delay;
         }
         private void LoadFrames(int rows, int columns, Vector2 subTopleft, Vector2 subDim)
         {

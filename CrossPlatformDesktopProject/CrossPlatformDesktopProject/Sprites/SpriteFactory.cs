@@ -18,6 +18,20 @@ namespace CrossPlatformDesktopProject.Sprites
         private Texture2D blueAmmoBorderSprite;
         private Texture2D whiteAmmoBackgroundSprite;
         private Texture2D grassSprite;
+        private Texture2D paused;
+        private Texture2D numberstransparent;
+        private Texture2D title;
+        private Texture2D highscreen;
+        private Texture2D high;
+        private Texture2D top3;
+        private Texture2D page;
+        private Texture2D menucontrols;
+        private Texture2D rules;
+        private Texture2D gamecontrols;
+        private Texture2D clearconfirm;
+        private Texture2D gameover;
+        private Texture2D youwinlose;
+        private Texture2D moreinfo;
 
         private static SpriteFactory spriteFactoryInstance = new SpriteFactory();
         public static SpriteFactory Instance
@@ -35,6 +49,20 @@ namespace CrossPlatformDesktopProject.Sprites
             rovers = content.Load<Texture2D>("rovers");
             numbers = content.Load<Texture2D>("numbers");
             star = content.Load<Texture2D>("star");
+            paused = content.Load<Texture2D>("paused");
+            numberstransparent = content.Load<Texture2D>("numberstransparent");
+            title = content.Load<Texture2D>("newmeteorrushtitle");
+            highscreen = content.Load<Texture2D>("newhighscoresscreen");
+            high = content.Load<Texture2D>("highscores");
+            top3 = content.Load<Texture2D>("goldsilverbronze");
+            page = content.Load<Texture2D>("pageindicators");
+            menucontrols = content.Load<Texture2D>("menucontrols");
+            rules = content.Load<Texture2D>("thegamerules");
+            gamecontrols = content.Load<Texture2D>("gamecontrols");
+            clearconfirm = content.Load<Texture2D>("clearhighscoreconfirm");
+            gameover = content.Load<Texture2D>("gameover");
+            youwinlose = content.Load<Texture2D>("youwinlose");
+            moreinfo = content.Load<Texture2D>("moreinfo");
             meteors = new Dictionary<int, Texture2D>()
             {
                 { 5, content.Load<Texture2D>("meteor5") },
@@ -61,6 +89,7 @@ namespace CrossPlatformDesktopProject.Sprites
             whiteAmmoBackgroundSprite.SetData(new Color[] { Color.White });
         }
 
+        /* game sprites */
         public ISprite BulletSprite(Vector2 pos)
         {
             return new Sprite(pos, new Vector2(4, 11), spriteBatch, bullet, new Vector2(), new Vector2(4, 11), 1, 1, SpriteLayers.BulletLayer);
@@ -78,13 +107,13 @@ namespace CrossPlatformDesktopProject.Sprites
             int dim = 2 * i + 1;
             return new Sprite(pos, new Vector2(dim, dim), spriteBatch, meteors[i], new Vector2(), new Vector2(dim, dim), 1, 1, SpriteLayers.MeteorLayer);
         }
-        public ISprite NumberSprite(Vector2 pos, int i) // i = number from 0-9
+        public ISprite NumberSprite(Vector2 pos, int i, bool inMenu = false) // i = number from 0-9
         {
-            return new Sprite(pos, new Vector2(10, 15), spriteBatch, numbers, new Vector2(10 * i, 0), new Vector2(10, 15), 1, 1, SpriteLayers.ScoreLayer);
+            return new Sprite(pos, new Vector2(10, 15), spriteBatch, numbers, new Vector2(10 * i, 0), new Vector2(10, 15), 1, 1, inMenu ? SpriteLayers.MenuLabelLayer : SpriteLayers.ScoreLayer);
         }
-        public ISprite StarSprite(Vector2 pos, List<double> frameProbabilities)
+        public ISprite StarSprite(Vector2 pos, List<double> frameProbabilities, int seed)
         {
-            return new RandomSprite(pos, new Vector2(3, 3), spriteBatch, star, new Vector2(), new Vector2(6, 3), 1, 2, SpriteLayers.StarLayer, frameProbabilities);
+            return new RandomSprite(pos, new Vector2(3, 3), spriteBatch, star, new Vector2(), new Vector2(6, 3), 1, 2, SpriteLayers.StarLayer, frameProbabilities, seed);
         }
         public ISprite BlackScoreBackgroundSprite(Vector2 pos, Vector2 dim)
         {
@@ -101,6 +130,67 @@ namespace CrossPlatformDesktopProject.Sprites
         public ISprite GrassSprite(Vector2 pos, Vector2 dim)
         {
             return new Sprite(pos, dim, spriteBatch, grassSprite, new Vector2(), new Vector2(1, 1), 1, 1, SpriteLayers.GrassLayer);
+        }
+
+        /* menu sprites */
+        public ISprite PageSprite(Vector2 pos, bool isLeft, bool pageExists) //CHANGE TEXTURE AND LAYER
+        {
+            int dir = isLeft ? 0 : 1;
+            int exists = pageExists ? 0 : 1;
+            return new Sprite(pos, new Vector2(9, 9), spriteBatch, page, new Vector2(9 * dir, 9 * exists), new Vector2(9, 9), 1, 1, SpriteLayers.PageIndicatorLayer);
+        }
+        public ISprite ClearConfirmSprite(Vector2 pos)
+        {
+            return new Sprite(pos, new Vector2(100, 40), spriteBatch, clearconfirm, new Vector2(), new Vector2(100, 80), 2, 1, SpriteLayers.PopUpLayer, 0.8f);
+        }
+        public ISprite PausedSprite(Vector2 pos)
+        {
+            return new Sprite(pos, new Vector2(50, 20), spriteBatch, paused, new Vector2(), new Vector2(50, 20), 1, 1, SpriteLayers.PopUpLayer);
+        }
+        public ISprite TitleSprite(Vector2 pos)
+        {
+            return new Sprite(pos, new Vector2(320, 240), spriteBatch, title, new Vector2(), new Vector2(320, 240), 1, 1, SpriteLayers.MenuLayer);
+        }
+        public ISprite HighScreenSprite(Vector2 pos)
+        {
+            return new Sprite(pos, new Vector2(320, 240), spriteBatch, highscreen, new Vector2(), new Vector2(320, 240), 1, 1, SpriteLayers.MenuLayer);
+        }
+        public ISprite HighScoresSprite(Vector2 pos)
+        {
+            return new Sprite(pos, new Vector2(68, 9), spriteBatch, high, new Vector2(), new Vector2(68, 9), 1, 1, SpriteLayers.MenuLabelLayer);
+        }
+        public ISprite Top3Sprite(Vector2 pos)
+        {
+            return new Sprite(pos, new Vector2(320, 240), spriteBatch, top3, new Vector2(), new Vector2(320, 240), 1, 1, SpriteLayers.GoldSilverBronzeLayer);
+        }
+        public ISprite MenuControlsSprite(Vector2 pos)
+        {
+            return new Sprite(pos, new Vector2(320, 240), spriteBatch, menucontrols, new Vector2(), new Vector2(320, 240), 1, 1, SpriteLayers.MenuLayer);
+        }
+        public ISprite GameControlsSprite(Vector2 pos)
+        {
+            return new Sprite(pos, new Vector2(320, 240), spriteBatch, gamecontrols, new Vector2(), new Vector2(320, 240), 1, 1, SpriteLayers.MenuLayer);
+        }
+        public ISprite GameRulesSprite(Vector2 pos)
+        {
+            return new Sprite(pos, new Vector2(320, 240), spriteBatch, rules, new Vector2(), new Vector2(320, 240), 1, 1, SpriteLayers.MenuLayer);
+        }
+        public ISprite MoreInfoSprite(Vector2 pos)
+        {
+            return new Sprite(pos, new Vector2(320, 240), spriteBatch, moreinfo, new Vector2(), new Vector2(320, 240), 1, 1, SpriteLayers.MenuLayer);
+        }
+        public ISprite NumberTransparentSprite(Vector2 pos, int i) // i = number from 0-9
+        {
+            return new Sprite(pos, new Vector2(10, 15), spriteBatch, numberstransparent, new Vector2(10 * i, 0), new Vector2(10, 15), 1, 1, SpriteLayers.MenuLabelLayer);
+        }
+        public ISprite GameOverSprite(Vector2 pos)
+        {
+            return new Sprite(pos, new Vector2(100, 40), spriteBatch, gameover, new Vector2(), new Vector2(100, 40), 1, 1, SpriteLayers.PopUpLayer);
+        }
+        public ISprite YouWinLoseSprite(Vector2 pos, bool win)
+        {
+            int winner = win ? 1 : 0;
+            return new Sprite(pos, new Vector2(160, 50), spriteBatch, youwinlose, new Vector2(0, 50 * winner), new Vector2(320, 50), 1, 2, SpriteLayers.PopUpLayer, 0.4f);
         }
     }
 }

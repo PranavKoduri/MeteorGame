@@ -44,12 +44,58 @@
   <PropertyGroup>
     <ApplicationManifest>app.manifest</ApplicationManifest>
   </PropertyGroup>
+  <PropertyGroup>
+    <StartupObject />
+  </PropertyGroup>
   <ItemGroup>
+    <Compile Include="CollisionManager.cs" />
     <Compile Include="CommandController\CommandList.cs" />
+    <Compile Include="CommandController\GoBackCommand.cs" />
+    <Compile Include="CommandController\HighScoresCommand.cs" />
     <Compile Include="CommandController\ICommand.cs" />
     <Compile Include="CommandController\KeyboardController.cs" />
+    <Compile Include="CommandController\PauseCommand.cs" />
+    <Compile Include="CommandController\PopUpCommand.cs" />
     <Compile Include="CommandController\QuitCommand.cs" />
+    <Compile Include="CommandController\ResetCommand.cs" />
+    <Compile Include="CommandController\RoverMovementCommand.cs" />
+    <Compile Include="CommandController\RoverShootCommand.cs" />
+    <Compile Include="CommandController\RulesCommand.cs" />
+    <Compile Include="Entities\Bullet.cs" />
+    <Compile Include="Entities\Grass.cs" />
+    <Compile Include="Entities\Meteor.cs" />
+    <Compile Include="Entities\Rover.cs" />
     <Compile Include="Game1.cs" />
+    <Compile Include="Gameplay\GameplayManager.cs" />
+    <Compile Include="Gameplay\IStage.cs" />
+    <Compile Include="Gameplay\Stage1.cs" />
+    <Compile Include="Gameplay\Stage2.cs" />
+    <Compile Include="Gameplay\Stage3.cs" />
+    <Compile Include="Gameplay\Stage4.cs" />
+    <Compile Include="Gameplay\Stage5.cs" />
+    <Compile Include="Gameplay\Stage6.cs" />
+    <Compile Include="Gameplay\Stars.cs" />
+    <Compile Include="GameState\FinishedState.cs" />
+    <Compile Include="GameState\GameplayState.cs" />
+    <Compile Include="GameState\GameStateManager.cs" />
+    <Compile Include="GameState\IGameState.cs" />
+    <Compile Include="GameState\MenuState.cs" />
+    <Compile Include="GameState\PausedState.cs" />
+    <Compile Include="InGameInfo\Ammo.cs" />
+    <Compile Include="InGameInfo\Score.cs" />
+    <Compile Include="Menu\HighScores.cs" />
+    <Compile Include="Menu\MenuManager.cs" />
+    <Compile Include="Menu\PageSets\HelpPageSet.cs" />
+    <Compile Include="Menu\PageSets\HighScorePageSet.cs" />
+    <Compile Include="Menu\PageSets\IPageSet.cs" />
+    <Compile Include="Menu\Pages\GameControlsPage.cs" />
+    <Compile Include="Menu\Pages\GameRulesPage.cs" />
+    <Compile Include="Menu\Pages\HighScoresPage.cs" />
+    <Compile Include="Menu\Pages\IPage.cs" />
+    <Compile Include="Menu\Pages\MenuControlsPage.cs" />
+    <Compile Include="Menu\Pages\MoreInfoPage.cs" />
+    <Compile Include="Menu\PopUps\ClearConfirmPopUp.cs" />
+    <Compile Include="Menu\PopUps\IPopUp.cs" />
     <Compile Include="Program.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
     <Compile Include="Sprites\ISprite.cs" />

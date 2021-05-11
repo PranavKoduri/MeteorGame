@@ -2,6 +2,12 @@
 using Microsoft.Xna.Framework.Graphics;
 using CrossPlatformDesktopProject.CommandController;
 using CrossPlatformDesktopProject.Sprites;
+using CrossPlatformDesktopProject.InGameInfo;
+using CrossPlatformDesktopProject.Entities;
+using CrossPlatformDesktopProject.GameState;
+using CrossPlatformDesktopProject.Gameplay;
+using CrossPlatformDesktopProject.Menu;
+using System.Collections.Generic;
 
 namespace CrossPlatformDesktopProject
 {
@@ -13,13 +19,24 @@ namespace CrossPlatformDesktopProject
         private GraphicsDeviceManager graphics;
         private SpriteBatch spriteBatch;
 
+        public readonly Vector2 Dimensions = new Vector2(320, 240);
+        private const int scale = 3;
+
         private Matrix transformationMatrix;
         private KeyboardController keyboard;
+
+        public Grass Grass;
+        public Rover Rover;
+        public readonly List<Bullet> Bullets;
+        public readonly List<Meteor> Meteors;
 
         public Game1()
         {
             graphics = new GraphicsDeviceManager(this);
             Content.RootDirectory = "Content";
+
+            Bullets = new List<Bullet>();
+            Meteors = new List<Meteor>();
         }
 
         /// <summary>
@@ -30,14 +47,15 @@ namespace CrossPlatformDesktopProject
         /// </summary>
         protected override void Initialize()
         {
-            int scale = 3;
-            graphics.PreferredBackBufferWidth = 320 * scale;
-            graphics.PreferredBackBufferHeight = 240 * scale;
+            graphics.PreferredBackBufferWidth = (int)Dimensions.X * scale;
+            graphics.PreferredBackBufferHeight = (int)Dimensions.Y * scale;
             graphics.ApplyChanges();
             transformationMatrix = Matrix.CreateScale(scale, scale, 0);
 
             keyboard = new KeyboardController(this);
             IsMouseVisible = true;
+            GameplayManager.Instance.Game = this;
+            HighScores.Instance.Game = this;
 
             base.Initialize();
         }
@@ -51,6 +69,16 @@ namespace CrossPlatformDesktopProject
             // Create a new SpriteBatch, which can be used to draw textures.
             spriteBatch = new SpriteBatch(GraphicsDevice);
             SpriteFactory.Instance.LoadTextures(Content, spriteBatch, GraphicsDevice);
+            GameStateManager.Instance.Game = this;
+            MenuManager.Instance.Game = this;
+
+            Ammo.Instance.Initialize(Dimensions.X);
+            Grass = new Grass(this);
+            Rover = new Rover(this);
+            CollisionManager.Instance.Game = this;
+            CollisionManager.Instance.SetHitboxStuff(spriteBatch, GraphicsDevice);
+
+            Stars.Instance.Game = this;
         }
 
         /// <summary>
@@ -70,7 +98,7 @@ namespace CrossPlatformDesktopProject
         protected override void Update(GameTime gameTime)
         {
             keyboard.Update();
-
+            GameStateManager.Instance.Update(gameTime);
             base.Update(gameTime);
         }
 
@@ -83,7 +111,7 @@ namespace CrossPlatformDesktopProject
             GraphicsDevice.Clear(Color.Black);
 
             spriteBatch.Begin(SpriteSortMode.BackToFront, BlendState.AlphaBlend, SamplerState.PointClamp, null, null, null, transformationMatrix);
-
+            GameStateManager.Instance.Draw();
             spriteBatch.End();
 
             base.Draw(gameTime);

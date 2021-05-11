@@ -5,6 +5,14 @@
   <Config />
   <SourceFiles>
     <File>C:/GitHub/MeteorGame/CrossPlatformDesktopProject/CrossPlatformDesktopProject/Content/bullet.png</File>
+    <File>C:/GitHub/MeteorGame/CrossPlatformDesktopProject/CrossPlatformDesktopProject/Content/clearhighscoreconfirm.png</File>
+    <File>C:/GitHub/MeteorGame/CrossPlatformDesktopProject/CrossPlatformDesktopProject/Content/clearscoreconfirm.png</File>
+    <File>C:/GitHub/MeteorGame/CrossPlatformDesktopProject/CrossPlatformDesktopProject/Content/gamecontrols.png</File>
+    <File>C:/GitHub/MeteorGame/CrossPlatformDesktopProject/CrossPlatformDesktopProject/Content/gameover.png</File>
+    <File>C:/GitHub/MeteorGame/CrossPlatformDesktopProject/CrossPlatformDesktopProject/Content/gamerules.png</File>
+    <File>C:/GitHub/MeteorGame/CrossPlatformDesktopProject/CrossPlatformDesktopProject/Content/goldsilverbronze.png</File>
+    <File>C:/GitHub/MeteorGame/CrossPlatformDesktopProject/CrossPlatformDesktopProject/Content/highscores.png</File>
+    <File>C:/GitHub/MeteorGame/CrossPlatformDesktopProject/CrossPlatformDesktopProject/Content/menucontrols.png</File>
     <File>C:/GitHub/MeteorGame/CrossPlatformDesktopProject/CrossPlatformDesktopProject/Content/meteor10.png</File>
     <File>C:/GitHub/MeteorGame/CrossPlatformDesktopProject/CrossPlatformDesktopProject/Content/meteor15.png</File>
     <File>C:/GitHub/MeteorGame/CrossPlatformDesktopProject/CrossPlatformDesktopProject/Content/meteor20.png</File>
@@ -12,11 +20,35 @@
     <File>C:/GitHub/MeteorGame/CrossPlatformDesktopProject/CrossPlatformDesktopProject/Content/meteor30.png</File>
     <File>C:/GitHub/MeteorGame/CrossPlatformDesktopProject/CrossPlatformDesktopProject/Content/meteor30a.png</File>
     <File>C:/GitHub/MeteorGame/CrossPlatformDesktopProject/CrossPlatformDesktopProject/Content/meteor5.png</File>
+    <File>C:/GitHub/MeteorGame/CrossPlatformDesktopProject/CrossPlatformDesktopProject/Content/moreinfo.png</File>
+    <File>C:/GitHub/MeteorGame/CrossPlatformDesktopProject/CrossPlatformDesktopProject/Content/newhighscoresscreen.png</File>
+    <File>C:/GitHub/MeteorGame/CrossPlatformDesktopProject/CrossPlatformDesktopProject/Content/newmeteorrushtitle.png</File>
     <File>C:/GitHub/MeteorGame/CrossPlatformDesktopProject/CrossPlatformDesktopProject/Content/numbers.png</File>
+    <File>C:/GitHub/MeteorGame/CrossPlatformDesktopProject/CrossPlatformDesktopProject/Content/numberstransparent.png</File>
+    <File>C:/GitHub/MeteorGame/CrossPlatformDesktopProject/CrossPlatformDesktopProject/Content/pageindicators.png</File>
+    <File>C:/GitHub/MeteorGame/CrossPlatformDesktopProject/CrossPlatformDesktopProject/Content/paused.png</File>
     <File>C:/GitHub/MeteorGame/CrossPlatformDesktopProject/CrossPlatformDesktopProject/Content/rovers.png</File>
     <File>C:/GitHub/MeteorGame/CrossPlatformDesktopProject/CrossPlatformDesktopProject/Content/star.png</File>
+    <File>C:/GitHub/MeteorGame/CrossPlatformDesktopProject/CrossPlatformDesktopProject/Content/thegamerules.png</File>
+    <File>C:/GitHub/MeteorGame/CrossPlatformDesktopProject/CrossPlatformDesktopProject/Content/youwinlose.png</File>
   </SourceFiles>
   <DestFiles>
+    <File xsi:nil="true" />
+    <File xsi:nil="true" />
+    <File xsi:nil="true" />
+    <File xsi:nil="true" />
+    <File xsi:nil="true" />
+    <File xsi:nil="true" />
+    <File xsi:nil="true" />
+    <File xsi:nil="true" />
+    <File xsi:nil="true" />
+    <File xsi:nil="true" />
+    <File xsi:nil="true" />
+    <File xsi:nil="true" />
+    <File xsi:nil="true" />
+    <File xsi:nil="true" />
+    <File xsi:nil="true" />
+    <File xsi:nil="true" />
     <File xsi:nil="true" />
     <File xsi:nil="true" />
     <File xsi:nil="true" />
