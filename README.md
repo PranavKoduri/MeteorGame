@@ -5,7 +5,7 @@ Meteors are constantly falling from the sky and you need to either dodge them or
 
 ## Game Controls
 - "A" or left arrow key to move left
-- "D" or right arrows key to move right
+- "D" or right arrow key to move right
 - "W", "S", up arrow key or down arrow key to shoot (directly up)
 - "P" or space bar to pause and unpause
 - "Q" to quit
