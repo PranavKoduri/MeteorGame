@@ -14,7 +14,7 @@ Meteors are constantly falling from the sky and you need to either dodge them or
 ## Resetting
 - Press "R" at any time to reset and go to the title screen.
 - If you reset while in the middle of a game, your score won't be saved.
-- Once the game is done and you win/lose, you can reset to play again without having the quit the program and start it again. Your score will be saved.
+- Once the game is done and you win/lose, you can reset to play again without having to quit the program and start it again. Your score will be saved.
 
 ## Scoring
 - Your score is displayed in the topleft corner while in game.
