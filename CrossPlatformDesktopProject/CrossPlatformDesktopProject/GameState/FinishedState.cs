@@ -25,6 +25,7 @@ namespace CrossPlatformDesktopProject.GameState
             Ammo.Instance.Draw();
             Stars.Instance.Draw();
             GameplayManager.Instance.Draw();
+            CollisionManager.Instance.Draw();
             game.Rover.Draw();
             game.Grass.Draw();
             gameOverSprite.Draw();

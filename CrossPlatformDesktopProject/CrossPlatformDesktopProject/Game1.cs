@@ -7,6 +7,7 @@ using CrossPlatformDesktopProject.Entities;
 using CrossPlatformDesktopProject.GameState;
 using CrossPlatformDesktopProject.Gameplay;
 using CrossPlatformDesktopProject.Menu;
+using System.Collections.Generic;
 
 namespace CrossPlatformDesktopProject
 {
@@ -19,17 +20,23 @@ namespace CrossPlatformDesktopProject
         private SpriteBatch spriteBatch;
 
         public readonly Vector2 Dimensions = new Vector2(320, 240);
+        private const int scale = 3;
 
         private Matrix transformationMatrix;
         private KeyboardController keyboard;
 
         public Grass Grass;
         public Rover Rover;
+        public readonly List<Bullet> Bullets;
+        public readonly List<Meteor> Meteors;
 
         public Game1()
         {
             graphics = new GraphicsDeviceManager(this);
             Content.RootDirectory = "Content";
+
+            Bullets = new List<Bullet>();
+            Meteors = new List<Meteor>();
         }
 
         /// <summary>
@@ -40,7 +47,6 @@ namespace CrossPlatformDesktopProject
         /// </summary>
         protected override void Initialize()
         {
-            int scale = 3;
             graphics.PreferredBackBufferWidth = (int)Dimensions.X * scale;
             graphics.PreferredBackBufferHeight = (int)Dimensions.Y * scale;
             graphics.ApplyChanges();
@@ -67,9 +73,10 @@ namespace CrossPlatformDesktopProject
             MenuManager.Instance.Game = this;
 
             Ammo.Instance.Initialize(Dimensions.X);
-
             Grass = new Grass(this);
             Rover = new Rover(this);
+            CollisionManager.Instance.Game = this;
+            CollisionManager.Instance.SetHitboxStuff(spriteBatch, GraphicsDevice);
 
             Stars.Instance.Game = this;
         }

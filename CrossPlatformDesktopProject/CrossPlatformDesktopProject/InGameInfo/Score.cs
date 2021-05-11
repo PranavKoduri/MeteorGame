@@ -33,7 +33,7 @@ namespace CrossPlatformDesktopProject.InGameInfo
         }
         public void MeteorDestroyed(int meteorHealth)
         {
-            score += 20 * meteorHealth;
+            score += 150 * meteorHealth;
         }
 
         public void Update(GameTime gameTime)

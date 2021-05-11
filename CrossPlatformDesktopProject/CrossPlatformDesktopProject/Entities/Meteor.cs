@@ -1,6 +1,9 @@
 ﻿using Microsoft.Xna.Framework;
 using CrossPlatformDesktopProject.Sprites;
 using CrossPlatformDesktopProject.InGameInfo;
+using System.Collections.Generic;
+using System;
+using CrossPlatformDesktopProject.Gameplay;
 
 namespace CrossPlatformDesktopProject.Entities
 {
@@ -19,6 +22,9 @@ namespace CrossPlatformDesktopProject.Entities
 
         private ISprite meteorSprite;
 
+        private List<Vector2> hitboxOffsets;
+        private List<Rectangle> hitboxes;
+
         public Meteor(Game1 game, int rad, Vector2 topMid, int hp, int dmg, int fallSpeed)
         {
             this.game = game;
@@ -30,6 +36,20 @@ namespace CrossPlatformDesktopProject.Entities
             Damage = dmg;
             velocity = new Vector2(0, fallSpeed);
             meteorSprite = SpriteFactory.Instance.MeteorSprite(topMiddle + topLeftTranslation, radius);
+
+            hitboxOffsets = new List<Vector2>();
+            hitboxes = new List<Rectangle>();
+            hitboxOffsets.Add(new Vector2());
+            hitboxes.Add(new Rectangle(topMid.ToPoint(), new Point(1, 2 * rad + 1)));
+            for (int i = 1; i <= rad; i++)
+            {
+                double y = Math.Sqrt(Math.Pow(rad, 2) - Math.Pow(i, 2));
+                hitboxOffsets.Add(new Vector2(-i, (float)(rad - y)));
+                hitboxOffsets.Add(new Vector2(i, (float)(rad - y)));
+                Point dim = new Point(1, 1 - 2 * ((int)(rad - y) - rad));
+                hitboxes.Add(new Rectangle((topMid + hitboxOffsets[2 * i - 1]).ToPoint(), dim));
+                hitboxes.Add(new Rectangle((topMid + hitboxOffsets[2 * i]).ToPoint(), dim));
+            }
         }
         public void Update(GameTime gameTime)
         {
@@ -44,6 +64,7 @@ namespace CrossPlatformDesktopProject.Entities
         public void Destroy(bool roverShot)
         {
             if (roverShot) Score.Instance.MeteorDestroyed(maxHealth);
+            GameplayManager.Instance.RemoveMeteor(this);
         }
         public bool Destroyed()
         {
@@ -75,8 +96,20 @@ namespace CrossPlatformDesktopProject.Entities
             {
                 topMiddle = value;
                 meteorSprite.Center = value + topLeftTranslation;
+                for (int i = 0; i < hitboxOffsets.Count; i++)
+                {
+                    Rectangle hitbox = hitboxes[i];
+                    hitbox.X = (int)(value.X + hitboxOffsets[i].X);
+                    hitbox.Y = (int)(value.Y + hitboxOffsets[i].Y);
+                    hitboxes[i] = hitbox;
+                }
             }
             get => topMiddle;
+        }
+
+        public ref List<Rectangle> Hitboxes
+        {
+            get => ref hitboxes;
         }
     }
 }

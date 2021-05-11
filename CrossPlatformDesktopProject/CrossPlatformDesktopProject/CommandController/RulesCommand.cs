@@ -1,5 +1,6 @@
 ﻿using CrossPlatformDesktopProject.GameState;
 using CrossPlatformDesktopProject.Menu;
+using CrossPlatformDesktopProject.Gameplay;
 
 namespace CrossPlatformDesktopProject.CommandController
 {
@@ -20,6 +21,7 @@ namespace CrossPlatformDesktopProject.CommandController
             if (pressed) return;
             pressed = true;
             if (GameStateManager.Instance.InMenu()) MenuManager.Instance.RulesPage();
+            if (GameStateManager.Instance.IsPlaying()) GameplayManager.Instance.ShowHitboxes = !GameplayManager.Instance.ShowHitboxes;
         }
         public void Unexecute()
         {

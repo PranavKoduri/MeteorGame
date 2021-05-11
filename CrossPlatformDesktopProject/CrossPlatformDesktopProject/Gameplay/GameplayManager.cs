@@ -14,6 +14,9 @@ namespace CrossPlatformDesktopProject.Gameplay
         private List<Bullet> bullets;
         private List<Meteor> meteors;
 
+        private const bool toggleableHitboxes = false;
+        private bool showHitboxes;
+
         private static GameplayManager gameplayManagerInstance = new GameplayManager();
         public static GameplayManager Instance
         {
@@ -22,8 +25,7 @@ namespace CrossPlatformDesktopProject.Gameplay
         private GameplayManager()
         {
             stage = 1;
-            bullets = new List<Bullet>();
-            meteors = new List<Meteor>();
+            showHitboxes = false;
         }
 
         public void Update(GameTime gameTime)
@@ -52,8 +54,8 @@ namespace CrossPlatformDesktopProject.Gameplay
         public void Reset()
         {
             stage = 1;
-            bullets = new List<Bullet>();
-            meteors = new List<Meteor>();
+            bullets.Clear();
+            meteors.Clear();
             foreach (int i in stages.Keys)
             {
                 stages[i].Reset();
@@ -87,19 +89,28 @@ namespace CrossPlatformDesktopProject.Gameplay
             else game.Rover.CurrentAmmo = game.Rover.MaxAmmo;
         }
 
+        public bool ShowHitboxes
+        {
+            get => showHitboxes;
+            set { 
+                if (toggleableHitboxes) showHitboxes = value; 
+            }
+        }
         public Game1 Game
         {
             set
             {
                 game = value;
+                bullets = game.Bullets;
+                meteors = game.Meteors;
                 stages = new Dictionary<int, IStage>()
                 {
-                    {1, new Stage1(game)},/*
+                    {1, new Stage1(game)},
                     {2, new Stage2(game)},
                     {3, new Stage3(game)},
                     {4, new Stage4(game)},
                     {5, new Stage5(game)},
-                    {6, new Stage6(game)},*/
+                    {6, new Stage6(game)},
                 };
             }
         }

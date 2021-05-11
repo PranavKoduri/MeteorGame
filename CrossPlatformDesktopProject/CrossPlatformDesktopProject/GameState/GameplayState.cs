@@ -16,6 +16,7 @@ namespace CrossPlatformDesktopProject.GameState
             Score.Instance.Update(gameTime);
             Stars.Instance.Update(gameTime);
             GameplayManager.Instance.Update(gameTime);
+            CollisionManager.Instance.Update();
             game.Rover.Update(gameTime);
         }
         public void Draw()
@@ -24,6 +25,7 @@ namespace CrossPlatformDesktopProject.GameState
             Ammo.Instance.Draw();
             Stars.Instance.Draw();
             GameplayManager.Instance.Draw();
+            CollisionManager.Instance.Draw();
             game.Rover.Draw();
             game.Grass.Draw();
         }

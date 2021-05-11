@@ -77,7 +77,6 @@ namespace CrossPlatformDesktopProject.Sprites
         }
         public void Draw()
         {
-            int c = currentFrame;
             spriteBatch.Draw(texture, position, frames[currentFrame], Color.White, 0, new Vector2(), SpriteEffects.None, layer);
         }
 

@@ -14,6 +14,8 @@ namespace CrossPlatformDesktopProject.Entities
 
         private ISprite bulletSprite;
 
+        private Rectangle hitbox;
+
         public Bullet(Game1 game, Vector2 topLeftPosition, int dmg, int speed)
         {
             this.game = game;
@@ -21,6 +23,7 @@ namespace CrossPlatformDesktopProject.Entities
             Damage = dmg;
             velocity = new Vector2(0, -speed);
             bulletSprite = SpriteFactory.Instance.BulletSprite(topLeftPosition);
+            hitbox = new Rectangle(topLeftPosition.ToPoint(), new Point(4, 11));
         }
         public void Update(GameTime gameTime)
         {
@@ -38,8 +41,15 @@ namespace CrossPlatformDesktopProject.Entities
             {
                 topLeft = value;
                 bulletSprite.Center = value;
+                hitbox.X = (int)value.X;
+                hitbox.Y = (int)value.Y;
             }
             get => topLeft;
+        }
+
+        public ref Rectangle Hitbox
+        {
+            get => ref hitbox;
         }
     }
 }

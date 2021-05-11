@@ -18,6 +18,7 @@
         public const float BlueAmmoBorderLayer = 0.32f;
 
         /* main game */
+        public const float HitboxLayer = 0.4f;
         public const float MeteorLayer = 0.5f;
         public const float RoverLayer = 0.6f;
         public const float BulletLayer = 0.65f;

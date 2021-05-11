@@ -30,8 +30,7 @@ namespace CrossPlatformDesktopProject.Gameplay
             delayTimer += (float)gameTime.ElapsedGameTime.TotalSeconds;
             if (durationTimer > spawnDuration)
             {
-                //if (!GameplayManager.Instance.MeteorsPresent()) FinishStage();
-                if (durationTimer > spawnDuration + 2) FinishStage();
+                if (!GameplayManager.Instance.MeteorsPresent()) FinishStage();
             }
             else if (delayTimer > spawnDelay)
             {

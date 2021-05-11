@@ -3,6 +3,7 @@ using Microsoft.Xna.Framework;
 using CrossPlatformDesktopProject.InGameInfo;
 using CrossPlatformDesktopProject.GameState;
 using CrossPlatformDesktopProject.Gameplay;
+using System.Collections.Generic;
 
 namespace CrossPlatformDesktopProject.Entities
 {
@@ -26,6 +27,9 @@ namespace CrossPlatformDesktopProject.Entities
         private float reloadSpeed;
         private float reloadTime;
 
+        private List<Vector2> hitboxOffsets;
+        private List<Rectangle> hitboxes;
+
         public Rover(Game1 game)
         {
             this.game = game;
@@ -44,6 +48,25 @@ namespace CrossPlatformDesktopProject.Entities
 
             roverSprite = SpriteFactory.Instance.RoverSprite(topLeft);
             roverSprite.FrameDirection = ISprite.FrameChange.Still;
+
+            hitboxOffsets = new List<Vector2>()
+            {
+                { new Vector2(12, 0) },
+                { new Vector2(11, 1) },
+                { new Vector2(8, 2) },
+                { new Vector2(5, 3) },
+                { new Vector2(2, 4) },
+                { new Vector2(0, 5) },
+            };
+            hitboxes = new List<Rectangle>()
+            {
+                { new Rectangle((hitboxOffsets[0] + topLeft).ToPoint(), new Point(6, 1)) },
+                { new Rectangle((hitboxOffsets[1] + topLeft).ToPoint(), new Point(8, 1)) },
+                { new Rectangle((hitboxOffsets[2] + topLeft).ToPoint(), new Point(14, 1)) },
+                { new Rectangle((hitboxOffsets[3] + topLeft).ToPoint(), new Point(20, 1)) },
+                { new Rectangle((hitboxOffsets[4] + topLeft).ToPoint(), new Point(26, 1)) },
+                { new Rectangle((hitboxOffsets[5] + topLeft).ToPoint(), new Point(30, 11)) },
+            };
         }
 
         public void Move(Vector2 movement)
@@ -151,6 +174,13 @@ namespace CrossPlatformDesktopProject.Entities
                 else if (value.X > maxRight.X) value.X = maxRight.X;
                 topLeft = value;
                 roverSprite.Center = value;
+                for (int i = 0; i < hitboxOffsets.Count; i++)
+                {
+                    Rectangle hitbox = hitboxes[i];
+                    hitbox.X = (int)(value.X + hitboxOffsets[i].X);
+                    hitbox.Y = (int)(value.Y + hitboxOffsets[i].Y);
+                    hitboxes[i] = hitbox;
+                }
             }
             get => topLeft;
         }
@@ -158,6 +188,11 @@ namespace CrossPlatformDesktopProject.Entities
         {
             get => reloadSpeed;
             set => reloadSpeed = value;
+        }
+
+        public ref List<Rectangle> Hitboxes
+        {
+            get => ref hitboxes;
         }
     }
 }
