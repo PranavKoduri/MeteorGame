@@ -1,6 +1,8 @@
 # Meteor Rush
 ## Made by Pranav Koduri
 
+NOTE: High scores may not save/display correctly.
+
 Meteors are constantly falling from the sky and you need to either dodge them or shoot them. You win by surviving the six stages of meteor falls, but the real challenge is destroying as many meteors as possible to increase your score as much as you can. But be careful - get hit by a meteor once and you instantly lose!
 
 ## Game Controls
