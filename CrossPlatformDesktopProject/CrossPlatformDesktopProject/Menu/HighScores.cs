@@ -43,13 +43,10 @@ namespace CrossPlatformDesktopProject.Menu
             for (int i = 0; i < numScores; i++)
             {
                 int score = 0;
-                int b;
                 for (int j = 0; j < Score.MaxDigits; j++)
                 {
-                    b = file.ReadByte();
-                    score = score * 10 + (b - charOffset);
+                    score = score * 10 + (file.ReadByte() - charOffset);
                 }
-                b = file.ReadByte();
                 scores.Add(score);
             }
             file.Close();
@@ -86,7 +83,6 @@ namespace CrossPlatformDesktopProject.Menu
                     {
                         file.WriteByte((byte)(digits[j] + charOffset));
                     }
-                    file.WriteByte((byte)'\n');
                 }
                 file.Close();
             }
@@ -102,7 +98,6 @@ namespace CrossPlatformDesktopProject.Menu
                 {
                     file.WriteByte(charOffset);
                 }
-                file.WriteByte((byte)'\n');
                 scores.Add(0);
             }
             file.Close();

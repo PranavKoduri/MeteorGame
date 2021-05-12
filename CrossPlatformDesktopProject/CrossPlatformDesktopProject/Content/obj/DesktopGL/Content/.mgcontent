@@ -6,7 +6,6 @@
   <SourceFiles>
     <File>C:/GitHub/MeteorGame/CrossPlatformDesktopProject/CrossPlatformDesktopProject/Content/bullet.png</File>
     <File>C:/GitHub/MeteorGame/CrossPlatformDesktopProject/CrossPlatformDesktopProject/Content/clearhighscoreconfirm.png</File>
-    <File>C:/GitHub/MeteorGame/CrossPlatformDesktopProject/CrossPlatformDesktopProject/Content/clearscoreconfirm.png</File>
     <File>C:/GitHub/MeteorGame/CrossPlatformDesktopProject/CrossPlatformDesktopProject/Content/gamecontrols.png</File>
     <File>C:/GitHub/MeteorGame/CrossPlatformDesktopProject/CrossPlatformDesktopProject/Content/gameover.png</File>
     <File>C:/GitHub/MeteorGame/CrossPlatformDesktopProject/CrossPlatformDesktopProject/Content/gamerules.png</File>
@@ -33,7 +32,6 @@
     <File>C:/GitHub/MeteorGame/CrossPlatformDesktopProject/CrossPlatformDesktopProject/Content/youwinlose.png</File>
   </SourceFiles>
   <DestFiles>
-    <File xsi:nil="true" />
     <File xsi:nil="true" />
     <File xsi:nil="true" />
     <File xsi:nil="true" />

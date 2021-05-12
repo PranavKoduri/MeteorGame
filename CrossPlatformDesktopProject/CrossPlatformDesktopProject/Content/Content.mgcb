@@ -37,18 +37,6 @@
 /processorParam:TextureFormat=Color
 /build:clearhighscoreconfirm.png
 
-#begin clearscoreconfirm.png
-/importer:TextureImporter
-/processor:TextureProcessor
-/processorParam:ColorKeyColor=255,0,255,255
-/processorParam:ColorKeyEnabled=True
-/processorParam:GenerateMipmaps=False
-/processorParam:PremultiplyAlpha=True
-/processorParam:ResizeToPowerOfTwo=False
-/processorParam:MakeSquare=False
-/processorParam:TextureFormat=Color
-/build:clearscoreconfirm.png
-
 #begin gamecontrols.png
 /importer:TextureImporter
 /processor:TextureProcessor

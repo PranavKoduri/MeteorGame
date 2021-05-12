@@ -29,7 +29,6 @@ C:\GitHub\MeteorGame\CrossPlatformDesktopProject\CrossPlatformDesktopProject\obj
 C:\GitHub\MeteorGame\CrossPlatformDesktopProject\CrossPlatformDesktopProject\obj\Debug\CrossPlatformDesktopProject.exe
 C:\GitHub\MeteorGame\CrossPlatformDesktopProject\CrossPlatformDesktopProject\obj\Debug\CrossPlatformDesktopProject.pdb
 C:\GitHub\MeteorGame\CrossPlatformDesktopProject\CrossPlatformDesktopProject\bin\DesktopGL\AnyCPU\Debug\Content\clearhighscoreconfirm.xnb
-C:\GitHub\MeteorGame\CrossPlatformDesktopProject\CrossPlatformDesktopProject\bin\DesktopGL\AnyCPU\Debug\Content\clearscoreconfirm.xnb
 C:\GitHub\MeteorGame\CrossPlatformDesktopProject\CrossPlatformDesktopProject\bin\DesktopGL\AnyCPU\Debug\Content\gamecontrols.xnb
 C:\GitHub\MeteorGame\CrossPlatformDesktopProject\CrossPlatformDesktopProject\bin\DesktopGL\AnyCPU\Debug\Content\gameover.xnb
 C:\GitHub\MeteorGame\CrossPlatformDesktopProject\CrossPlatformDesktopProject\bin\DesktopGL\AnyCPU\Debug\Content\gamerules.xnb
